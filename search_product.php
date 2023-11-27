@@ -24,12 +24,6 @@ include('./functions/common_function.php');
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <style>
-        .card-img-top {
-            width: 286px;
-            height: 200px;
-        }
-    </style>
 
 </head>
 
@@ -53,7 +47,7 @@ include('./functions/common_function.php');
                             <a class="nav-link active" aria-current="page" href="./index.php">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="display_all.php">Sản phẩm</a>
+                            <a class="nav-link" href="#">Sản phẩm</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Đăng ký</a>
@@ -62,7 +56,7 @@ include('./functions/common_function.php');
                             <a class="nav-link" href="#">Liên hệ</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="cart.php"><i class="fa-solid fa-cart-shopping"></i><sup>
+                            <a class="nav-link" href="#"><i class="fa-solid fa-cart-shopping"></i><sup>
                                     <?php cart_item(); ?>
                                 </sup></a>
                         </li>
@@ -81,11 +75,6 @@ include('./functions/common_function.php');
                 </div>
             </div>
         </nav>
-
-        <!-- call cart function -->
-        <?php
-        cart();
-        ?>
 
 
         <!-- second child -->
@@ -120,12 +109,11 @@ include('./functions/common_function.php');
                     <!-- fetching products -->
                     <?php
                     // goi ham
-                    getProducts();
+                    search_product();
                     get_unique_categories();
                     get_unique_brand();
-
-                    // $ip = getIPAddress();
-                    // echo 'User Real IP Address - ' . $ip;
+                    //get_unique_brand();
+                    //getUniqueBrands();
                     
 
                     ?>
@@ -176,17 +164,16 @@ include('./functions/common_function.php');
 
 
         <!-- last child -->
-        <!-- include footer -->
-        <?php
-        include("./includes/footer.php")
-            ?>
-    </div>
+        <!-- <div class="bg-light p-3 text-center">
+            <p>Bản quyền của Công ty TNHH Nostalgia</p>
+        </div>
+    </div> -->
 
 
-    <!-- bootstrap js link -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-        crossorigin="anonymous"></script>
+        <!-- bootstrap js link -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+            crossorigin="anonymous"></script>
 </body>
 
 </html>

@@ -1,3 +1,47 @@
+<?php
+include('../includes/connect.php');
+if (isset($_POST['insert_product'])) {
+    $product_title = $_POST['product_title'];
+    $description = $_POST['description'];
+    $product_keyword = $_POST['product_keyword'];
+    $product_category = $_POST['product_category'];
+    $product_brands = $_POST['product_brands'];
+    $product_price = $_POST['product_price'];
+    $product_status = 'true';
+
+    //access image
+    $product_image1 = $_FILES['product_image1']['name'];
+    $product_image2 = $_FILES['product_image2']['name'];
+    $product_image3 = $_FILES['product_image3']['name'];
+
+    //access image tmp name
+    $temp_image1 = $_FILES['product_image1']['tmp_name'];
+    $temp_image2 = $_FILES['product_image2']['tmp_name'];
+    $temp_image3 = $_FILES['product_image3']['tmp_name'];
+
+    //check condition
+    if ($product_title == '' or $description == '' or $product_keyword == '' or $product_category == '' or $product_brands == '' or $product_price == '') {
+        echo "<script>alert('Hay nhap field')</script>";
+        exit();
+    } else {
+        move_uploaded_file($temp_image1, "./product_images/$product_image1");
+        move_uploaded_file($temp_image2, "./product_images/$product_image2");
+        move_uploaded_file($temp_image3, "./product_images/$product_image3");
+        //insert query
+        $insert_products = "insert into `products` (product_title,product_description,product_keyword,danhmuc_id,theloai_id,product_image1,product_image2,product_image3,product_price,date,status) values('$product_title', '$description','$product_keyword','$product_category','$product_brands','$product_image1','$product_image2','$product_image3','$product_price',NOW(),$product_status)";
+        $result_query = mysqli_query($con, $insert_products);
+        if ($result_query) {
+            echo "<script>alert('Them success')</script>";
+
+        } else {
+            echo "<script>alert('Them failed')</script>";
+        }
+
+
+    }
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -67,11 +111,18 @@
             <div class="form-outline mb-4 w-50 m-auto">
                 <select name="product_category" id="" class="form-select">
                     <option value="">Chọn danh muc</option>
-                    <option value="">Danhmuc1</option>
-                    <option value="">Danhmuc2</option>
-                    <option value="">Danhmuc3</option>
-                    <option value="">Danhmuc4</option>
-                    <option value="">Danhmuc5</option>
+                    <?php
+                    $select_query = "Select * from `danhmuc`";
+                    $result_query = mysqli_query($con, $select_query);
+                    while ($row = mysqli_fetch_assoc($result_query)) {
+                        $danhmuc_title = $row['danhmuc_title'];
+                        $danhmuc_id = $row['danhmuc_id'];
+
+                        echo "<option value='$danhmuc_id'>$danhmuc_title</option>";
+
+                    }
+                    ?>
+
                 </select>
             </div>
 
@@ -79,11 +130,17 @@
             <div class="form-outline mb-4 w-50 m-auto">
                 <select name="product_brands" id="" class="form-select">
                     <option value="">Chọn brands</option>
-                    <option value="">Brand1</option>
-                    <option value="">Brand2</option>
-                    <option value="">Brand3</option>
-                    <option value="">Brand4</option>
-                    <option value="">Brand5</option>
+                    <?php
+                    $select_query = "Select * from `theloai`";
+                    $result_query = mysqli_query($con, $select_query);
+                    while ($row = mysqli_fetch_assoc($result_query)) {
+                        $theloai_title = $row['theloai_title'];
+                        $theloai_id = $row['theloai_id'];
+
+                        echo "<option value='$theloai_id'>$theloai_title</option>";
+
+                    }
+                    ?>
                 </select>
             </div>
 

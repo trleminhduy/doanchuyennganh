@@ -1,7 +1,7 @@
 <!-- connect file -->
 <?php
-include('../ECOMMERCE/includes/connect.php');
-include('./functions/common_function.php');
+include('C:\wamp64\www\ECOMMERCE\includes\connect.php');
+
 
 ?>
 
@@ -12,7 +12,7 @@ include('./functions/common_function.php');
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CỬA HÀNG NOSTALGIA</title>
+    <title>CONG THANH TOAN</title>
     <link rel="stylesheet" href="./asset/style.css">
 
     <!-- bootstrap css link -->
@@ -50,7 +50,7 @@ include('./functions/common_function.php');
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="./index.php">Home</a>
+                            <a class="nav-link active" aria-current="page" href="\ECOMMERCE\index.php">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="display_all.php">Sản phẩm</a>
@@ -61,16 +61,7 @@ include('./functions/common_function.php');
                         <li class="nav-item">
                             <a class="nav-link" href="#">Liên hệ</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="cart.php"><i class="fa-solid fa-cart-shopping"></i><sup>
-                                    <?php cart_item(); ?>
-                                </sup></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Tổng giỏ hàng:
-                                <?php total_cart_price() ?>
-                            </a>
-                        </li>
+
                     </ul>
                     <form class="d-flex" role="search" action="search_product.php" method="get">
                         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
@@ -82,10 +73,7 @@ include('./functions/common_function.php');
             </div>
         </nav>
 
-        <!-- call cart function -->
-        <?php
-        cart();
-        ?>
+
 
 
         <!-- second child -->
@@ -95,7 +83,7 @@ include('./functions/common_function.php');
                     <a class="nav-link " href="#">Xin chào: Khách</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " href="./users_area/user_login.php">Đăng nhập</a>
+                    <a class="nav-link " href="#">Đăng nhập</a>
                 </li>
 
             </ul>
@@ -106,69 +94,29 @@ include('./functions/common_function.php');
 
         <div class="bg-light">
             <h3 class="text-center">
-                CỬA HÀNG NOSTALGIA
-            </h3 class="text-center">
-            <p class="text-center"> ĐẶT SỰ TRẢI NGHIỆM CỦA BẠN LÊN HÀNG ĐẦU</p>
+                TRANG THANH TOÁN
+                <!-- </h3 class="text-center"> -->
+                <!-- <p class="text-center"> </p> -->
         </div>
 
         <!-- fourth child -->
         <div class="row px-1">
             <!-- sum up page bang 12 horizontal -->
-            <div class="col-md-10">
+            <div class="col-md-12">
                 <!-- products -->
                 <div class="row">
-                    <!-- fetching products -->
                     <?php
-                    // goi ham
-                    getProducts();
-                    get_unique_categories();
-                    get_unique_brand();
-
-                    // $ip = getIPAddress();
-                    // echo 'User Real IP Address - ' . $ip;
+                    if (!isset($_SESSION['username'])) { //neu user chua dang nhap redirect qua form dang nhap
+                        include('user_login.php');
+                    } else {
+                        include('payment.php'); //else redirect qua trang payment
                     
-
+                    }
                     ?>
-
-                    <!-- row end -->
                 </div>
                 <!-- column end -->
             </div>
-            <div class="col-md-2 bg-secondary p-0">
-                <!-- sidenav -->
-                <!-- danhmuc displayed -->
-                <ul class="navbar-nav me-auto text-center">
-                    <li class="nav-item bg-info">
-                        <a href="#" class="nav-link text-light">
-                            <h4>DANH MỤC</h4>
-                        </a>
-                    </li>
-                    <?php
-                    getCat();
 
-
-                    ?>
-
-
-
-                </ul>
-
-                <!-- brand displayed -->
-                <ul class="navbar-nav me-auto text-center">
-                    <li class="nav-item bg-info">
-                        <a href="#" class="nav-link text-light">
-                            <h4>THỂ LOẠI</h4>
-                        </a>
-                    </li>
-
-                    <?php
-                    getBrands();
-
-                    ?>
-
-                </ul>
-
-            </div>
 
         </div>
 
@@ -178,7 +126,7 @@ include('./functions/common_function.php');
         <!-- last child -->
         <!-- include footer -->
         <?php
-        include("./includes/footer.php")
+        include("../includes/footer.php")
             ?>
     </div>
 

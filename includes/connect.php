@@ -1,7 +1,7 @@
 <?php
 $con = mysqli_connect('localhost', 'root', '', 'mystore');
 if ($con) {
-    echo "Success";
+    echo "";
 } else {
     echo "fail";
 }
