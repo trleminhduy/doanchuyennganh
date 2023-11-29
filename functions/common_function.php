@@ -118,7 +118,7 @@ function get_unique_categories()
       </div>
       ";
         }
-      
+
     }
 }
 
@@ -158,72 +158,12 @@ function get_unique_brand()
       </div>
       ";
         }
-        // } else {
-        //     $select_query = "Select * from `products`";
-        //     $result_query = mysqli_query($con, $select_query);
-        //     while ($row = mysqli_fetch_assoc($result_query)) {
-        //         $product_id = $row['product_id'];
-        //         $product_title = $row['product_title'];
-        //         $product_description = $row['product_description'];
-        //         $product_image1 = $row['product_image1'];
-        //         $product_price = $row['product_price'];
-        //         $danhmuc_id = $row['danhmuc_id'];
-        //         $theloai_id = $row['theloai_id'];
-        //         echo "
-        //   <div class='col-md-4 mb-2'>
-        //     <div class='card' style='width: 18rem;'>
-        //       <img src='./admin_area/product_images/$product_image1' class='card-img-top' alt='$product_title'>
-        //       <div class='card-body'>
-        //         <h5 class='card-title'> $product_title</h5>
-        //         <p class='card-text'>$product_description </p>
-        //         <a href='#' class='btn btn-info'>Thêm vào giỏ hàng</a>
-        //         <a href='#' class='btn btn-info mt-2 bg-light'>Xem thêm</a>
-        //       </div>
-        //     </div>
-        //   </div>
-        //   ";
-        //     }
-        // }
+       
     }
 }
 
 
-// function get_unique_brand()
-// {
-//     global $con;
-//     //condition to check isset or not
-//     if (isset($_GET['brand'])) {
-//         $danhmuc_id = $_GET['brand'];
-//         $select_query = "Select * from `products` where theloai_id=$danhmuc_id";
-//         $result_query = mysqli_query($con, $select_query);
-//         $num_of_rows = mysqli_num_rows($result_query);
-//         if ($num_of_rows == 0) {
-//             echo "<h2 class='text-center text-danger'>No products found</h2>";
-//         }
-//         while ($row = mysqli_fetch_assoc($result_query)) {
-//             $product_id = $row['product_id'];
-//             $product_title = $row['product_title'];
-//             $product_description = $row['product_description'];
-//             $product_image1 = $row['product_image1'];
-//             $product_price = $row['product_price'];
-//             $danhmuc_id = $row['danhmuc_id'];
-//             $theloai_id = $row['theloai_id'];
-//             echo "
-//       <div class='col-md-4 mb-2'>
-//         <div class='card' style='width: 18rem;'>
-//           <img src='./admin_area/product_images/$product_image1' class='card-img-top' alt='$product_title'>
-//           <div class='card-body'>
-//             <h5 class='card-title'> $product_title</h5>
-//             <p class='card-text'>$product_description </p>
-//             <a href='#' class='btn btn-info'>Thêm vào giỏ hàng</a>
-//             <a href='#' class='btn btn-info mt-2 bg-light'>Xem thêm</a>
-//           </div>
-//         </div>
-//       </div>
-//       ";
-//         }
-//     }
-// }
+
 
 
 //getting brand
@@ -493,6 +433,35 @@ function total_cart_price()
     }
     echo $total_price;
 
+}
+
+//func for get user orders and show orders details
+function get_user_order_details()
+{
+    global $con;
+    $username = $_SESSION['username'];
+    $get_details = "Select * from `user_table` where username='$username'";
+    $result_query = mysqli_query($con, $get_details);
+    while ($row_query = mysqli_fetch_array($result_query)) {
+        $user_id = $row_query['user_id'];
+        if (!isset($_GET['edit_account'])) {
+            if (!isset($_GET['my_orders'])) {
+                if (!isset($_GET['my_orders'])) {
+                    $get_orders = "Select * from `user_orders` where user_id='$user_id' and order_status='pending'";
+                    $result_orders_query = mysqli_query($con, $get_orders);
+                    $row_count = mysqli_num_rows($result_orders_query);
+                    if ($row_count > 0) {
+                        echo "<h3 class='text-center mt-5 mb-4' > Bạn có <span class='text-danger'> $row_count </span> đơn hàng đang chờ </h3>
+                       <p class='text-center'><a href='profile.php?my_orders'> Chi tiết đơn hàng </a></p> ";
+
+                    } else {
+                        echo "<h3 class='text-center mt-5 mb-4 ' > Bạn không có đơn hàng nào </h3>
+                       <p class='text-center'><a href='../index.php'> Khám phá kho sách </a></p> ";
+                    }
+                }
+            }
+        }
+    }
 }
 
 

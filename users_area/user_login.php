@@ -1,3 +1,10 @@
+<?php
+include('../includes/connect.php');
+include('../functions/common_function.php');
+@session_start();
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -70,20 +77,27 @@ if (isset($_POST['user_login'])) {
     //check cart items
     $select_query_cart = "select * from `cart_details` where ip_address ='$user_ip' ";
     $select_cart = mysqli_query($con, $select_query_cart);
-    $row_count_cart = mysqli_num_rows($row_count_cart);
+    $row_count_cart = mysqli_num_rows($select_cart);
 
     if ($row_count > 0) {
+        $_SESSION['username'] = $user_username;
+
         if (password_verify($user_password, $row_data['user_password'])) {
             // echo "<script>alert('Đăng nhập thành công') </script>";
 
-            if ($row_count == 1 and $row_count_cart == 0) {        //check user login va cart kh co item thi redirect lai profile
+            if ($row_count == 1 and $row_count_cart == 0) {
+                $_SESSION['username'] = $user_username;
+                //check user login va cart kh co item thi redirect lai profile
                 echo "<script>alert('Đăng nhập thành công') </script>";
-                echo "<script>window.open('profile.php') </script>";
+                echo "<script> window.open('profile.php','_self')</script>";
 
 
-            } else {
+
+            } else {  //neu user login va user dang co item trong cart thi chuyen qua trang payment
+                $_SESSION['username'] = $user_username;
+
                 echo "<script>alert('Đăng nhập thành công') </script>";
-                echo "<script>window.open('payment.php') </script>";  //user da co item trong cart thi redirect qua trang thanh toan
+                echo "<script> window.open('payment.php','_self')</script>"; //user da co item trong cart thi redirect qua trang thanh toan
             }
 
 

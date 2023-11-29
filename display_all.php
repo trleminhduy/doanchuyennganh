@@ -2,6 +2,7 @@
 <?php
 include('../ECOMMERCE/includes/connect.php');
 include('./functions/common_function.php');
+session_start();
 
 ?>
 
@@ -50,13 +51,13 @@ include('./functions/common_function.php');
                             <a class="nav-link" href="display_all.php">Sản phẩm</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Đăng ký</a>
+                            <a class="nav-link" href="./users_area/user_registration.php">Đăng ký</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Liên hệ</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="fa-solid fa-cart-shopping"></i><sup>
+                            <a class="nav-link" href="cart.php"><i class="fa-solid fa-cart-shopping"></i><sup>
                                     <?php cart_item(); ?>
                                 </sup></a>
                         </li>
@@ -80,12 +81,30 @@ include('./functions/common_function.php');
         <!-- second child -->
         <nav class="navbar navbar-expand-lg bg-light">
             <ul class="navbar-nav me-auto">
-                <li class="nav-item">
-                    <a class="nav-link " href="#">Xin chào: Khách</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link " href="./users_area/user_login.php">Đăng nhập</a>
-                </li>
+
+                <?php
+                if (!isset($_SESSION['username'])) { //neu cái session chưa được active thì hiện button đăng nhập
+                    echo "<li class='nav-item'>
+                    <a class='nav-link' href='#'>Xin chào: Khách</a>
+                </li>";
+                } else {  //nếu session đã active rồi thì show button đăng xuất
+                    echo "<li class='nav-item'>
+                    <a class='nav-link' href='#'>Xin chao: " . $_SESSION['username'] . " </a>
+                </li>";
+                }
+
+                //login logout session
+                if (!isset($_SESSION['username'])) { //neu cái session chưa được active thì hiện button đăng nhập
+                    echo "<li class='nav-item'>
+                    <a class='nav-link' href='./users_area/user_login.php'>Đăng nhập</a>
+                </li>";
+                } else {  //nếu session đã active rồi thì show button đăng xuất
+                    echo "<li class='nav-item'>
+                    <a class='nav-link' href='./users_area/logout.php'>Đăng xuất</a>
+                </li>";
+                }
+
+                ?>
 
             </ul>
         </nav>
@@ -112,9 +131,7 @@ include('./functions/common_function.php');
                     get_all_products();
                     get_unique_categories();
                     get_unique_brand();
-                    //get_unique_brand();
-                    //getUniqueBrands();
-                    
+
 
                     ?>
 
@@ -133,7 +150,6 @@ include('./functions/common_function.php');
                     </li>
                     <?php
                     getCat();
-
 
                     ?>
 
