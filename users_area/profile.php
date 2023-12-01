@@ -43,6 +43,11 @@ session_start();
         width: 100px;
         height: 100px;
     }
+
+    .edit_img {
+        width: 100px;
+        object-fit: contain;
+    }
 </style>
 
 <body>
@@ -192,8 +197,17 @@ session_start();
             </div>
             <div class="col-md-10">
                 <?php
-                get_user_order_details()
-                    ?>
+                get_user_order_details();
+                if (isset($_GET['edit_account'])) {
+                    include('edit_account.php');
+                }
+                if (isset($_GET['my_orders'])) {
+                    include('user_orders.php');
+                }
+                if (isset($_GET['delete_account'])) {
+                    include('delete_account.php');
+                }
+                ?>
             </div>
 
         </div>
@@ -203,9 +217,9 @@ session_start();
 
         <!-- last child -->
         <!-- include footer -->
-        <?php
-        include("../includes/footer.php")
-            ?>
+        <!-- <?php
+        // include("../includes/footer.php")
+        ?> -->
     </div>
 
 
