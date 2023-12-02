@@ -27,6 +27,12 @@ session_start();
 
 
 </head>
+<style>
+    .card-img-top {
+        width: 270px;
+        height: 270px;
+    }
+</style>
 
 <body>
 
@@ -164,7 +170,7 @@ session_start();
                 <ul class="navbar-nav me-auto text-center">
                     <li class="nav-item bg-info">
                         <a href="#" class="nav-link text-light">
-                            <h4>THỂ LOẠI</h4>
+                            <h4>NHÀ XUẤT BẢN</h4>
                         </a>
                     </li>
 

@@ -19,6 +19,19 @@ session_start();
     <!-- bootstrap css link -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- bootstrap javascript -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
 
     <!-- font awesome link -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
@@ -27,8 +40,8 @@ session_start();
 
     <style>
         .card-img-top {
-            width: 286px;
-            height: 200px;
+            width: 270px;
+            height: 270px;
         }
     </style>
 
@@ -59,11 +72,11 @@ session_start();
                         <?php
                         if (isset($_SESSION['username'])) {
                             echo "  <li class='nav-item'>
-                            <a class='nav-link' href='./users_area/profile.php'>My Account</a>
+                            <a class='nav-link' href='./users_area/profile.php'>Trang cá nhân</a>
                         </li>";
                         } else {
                             echo "  <li class='nav-item'>
-                            <a class='nav-link' href='./users_area/user_registration.php'>Dang ky</a>
+                            <a class='nav-link' href='./users_area/user_registration.php'>Đăng ký</a>
                         </li>";
                         }
                         ?>
@@ -83,8 +96,8 @@ session_start();
                         </li>
                     </ul>
                     <form class="d-flex" role="search" action="search_product.php" method="get">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
-                            name="search_data">
+                        <input class="form-control me-2" type="search" placeholder="Viết liền không dấu"
+                            aria-label="Search" name="search_data">
 
                         <input type="submit" value="Search" class="btn btn-outline-light" name="search_data_product">
                     </form>
@@ -185,7 +198,7 @@ session_start();
                 <ul class="navbar-nav me-auto text-center">
                     <li class="nav-item bg-info">
                         <a href="#" class="nav-link text-light">
-                            <h4>THỂ LOẠI</h4>
+                            <h4>NHÀ XUẤT BẢN</h4>
                         </a>
                     </li>
 

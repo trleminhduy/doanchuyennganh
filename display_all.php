@@ -25,6 +25,12 @@ session_start();
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+    <style>
+        .card-img-top {
+            width: 270px;
+            height: 270px;
+        }
+    </style>
 
 </head>
 
@@ -161,7 +167,7 @@ session_start();
                 <ul class="navbar-nav me-auto text-center">
                     <li class="nav-item bg-info">
                         <a href="#" class="nav-link text-light">
-                            <h4>THỂ LOẠI</h4>
+                            <h4>NHÀ XUẤT BẢN</h4>
                         </a>
                     </li>
 

@@ -147,19 +147,19 @@ if (isset($_POST['insert_product'])) {
             <!-- Image 1 -->
             <div class="form-outline mb-4 w-50 m-auto">
                 <label for="product_image1 class=" form-label">Product image 1</label>
-                <input type="file" name="product_image1" id="product_image1" class="form-control" required="required">
+                <input type="file" name="product_image1" id="product_image1" class="form-control">
             </div>
 
             <!-- Image 2 -->
             <div class="form-outline mb-4 w-50 m-auto">
                 <label for="product_image2 class=" form-label">Product image 2</label>
-                <input type="file" name="product_image2" id="product_image2" class="form-control" required="required">
+                <input type="file" name="product_image2" id="product_image2" class="form-control">
             </div>
 
             <!-- Image 3 -->
             <div class="form-outline mb-4 w-50 m-auto">
                 <label for="product_image3 class=" form-label">Product image 3</label>
-                <input type="file" name="product_image3" id="product_image3" class="form-control" required="required">
+                <input type="file" name="product_image3" id="product_image3" class="form-control">
             </div>
 
             <!-- price -->
