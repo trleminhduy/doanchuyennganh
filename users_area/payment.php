@@ -10,7 +10,7 @@ include('../functions/common_function.php');
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TRANG THANH TOAN</title>
+    <title>TRANG THANH TOÁN</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
@@ -32,14 +32,14 @@ include('../functions/common_function.php');
     
     ?>
     <div class="container">
-        <h2 class="text-center text-info">PHUONG THUC THANH TOAN</h2>
+        <h2 class="text-center text-info">PHƯƠNG THỨC THANH TOÁN</h2>
         <div class="row d-flex justify-content-center align-items-center mt-5">
             <div class="col-md-6">
                 <a href="https://momo.vn"><img src="../asset/img/MoMo_Logo.png" alt="momo_img"></a>
             </div>
             <div class="col-md-6">
                 <a href="order.php?user_id=<?php echo $user_id ?>">
-                    <h2 class="text-center">THANH TOAN OFFLINE</h2>
+                    <h2 class="text-center">THANH TOÁN QUA PHƯƠNG THỨC KHÁC</h2>
                 </a>
             </div>
 

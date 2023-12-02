@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Xem danh sách danh mục</title>
     <!-- bootstrap css -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -21,14 +21,14 @@
 </head>
 
 <body>
-    <h3 class="text-center">ALL CATEGORY</h3>
+    <h3 class="text-center">DANH SÁCH DANH MỤC</h3>
     <table class=" table table-bordered mt-5 text-center">
         <thead>
             <tr>
-                <th>Category id</th>
-                <th>Category title</th>
-                <th>Edit</th>
-                <th>Delete</th>
+                <th>STT</th>
+                <th>Tên danh mục</th>
+                <th>Chỉnh sửa</th>
+                <th>Xoá</th>
 
             </tr>
         </thead>

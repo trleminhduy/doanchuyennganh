@@ -46,7 +46,7 @@ if (isset($_POST['confirm_payment'])) {
         <h1 class="text-center" text-light>XÁC NHẬN THANH TOÁN</h1>
         <form action="" method="post">
             <div class="form-outline my-4 text-center w-50 m-auto">
-                <label for="">So hoa don</label>
+                <label for="">Số hoá đơn</label>
                 <input type="text" class="form-control w-50 m-auto" name="invoice_number"
                     value="<?php echo $invoice_number ?>">
             </div>
@@ -65,7 +65,8 @@ if (isset($_POST['confirm_payment'])) {
                 </select>
             </div>
             <div class="form-outline my-4 text-center w-50 m-auto">
-                <input type="submit" class="bg-danger py-2 px-3 border-0" value="XAC NHAN" name="confirm_payment">
+                <input type="submit" class="bg-danger py-2 px-3 border-0" value="XÁC NHẬN THANH TOÁN"
+                    name="confirm_payment">
             </div>
         </form>
     </div>

@@ -31,10 +31,10 @@ if (isset($_POST['insert_product'])) {
         $insert_products = "insert into `products` (product_title,product_description,product_keyword,danhmuc_id,theloai_id,product_image1,product_image2,product_image3,product_price,date,status) values('$product_title', '$description','$product_keyword','$product_category','$product_brands','$product_image1','$product_image2','$product_image3','$product_price',NOW(),$product_status)";
         $result_query = mysqli_query($con, $insert_products);
         if ($result_query) {
-            echo "<script>alert('Them success')</script>";
+            echo "<script>alert('Thêm thành công')</script>";
 
         } else {
-            echo "<script>alert('Them failed')</script>";
+            echo "<script>alert('Lỗi thêm')</script>";
         }
 
 
@@ -110,7 +110,7 @@ if (isset($_POST['insert_product'])) {
             <!-- danh muc -->
             <div class="form-outline mb-4 w-50 m-auto">
                 <select name="product_category" id="" class="form-select">
-                    <option value="">Chọn danh muc</option>
+                    <option value="">Chọn danh mục</option>
                     <?php
                     $select_query = "Select * from `danhmuc`";
                     $result_query = mysqli_query($con, $select_query);
@@ -129,7 +129,7 @@ if (isset($_POST['insert_product'])) {
             <!-- brands -->
             <div class="form-outline mb-4 w-50 m-auto">
                 <select name="product_brands" id="" class="form-select">
-                    <option value="">Chọn brands</option>
+                    <option value="">Chọn nhà xuất bản</option>
                     <?php
                     $select_query = "Select * from `theloai`";
                     $result_query = mysqli_query($con, $select_query);

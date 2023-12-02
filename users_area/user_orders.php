@@ -28,11 +28,11 @@
             <tr>
                 <th>STT</th>
                 <th>Amount due</th>
-                <th>Tong don hang</th>
-                <th>So hoa don</th>
-                <th>Date</th>
-                <th>Thanh cong/khong thanh cong</th>
-                <th>Status</th>
+                <th>Tổng đơn hàng</th>
+                <th>Số hoá đơn</th>
+                <th>Ngày đặt</th>
+                <th>Thành công/Không thành công</th>
+                <th>Trạng thái</th>
             </tr>
         </thead>
         <tbody class="bg-light text-light">
@@ -62,7 +62,7 @@
                 <td>$order_status_display</td>";
 
                 if ($order_status == 'Complete') {
-                    echo "<td>paid</td>";
+                    echo "<td>Đã thanh toán</td>";
                 } else {
                     echo "<td><a href='confirm_payment.php?order_id=$order_id'>Confirm</a></td>";
                 }

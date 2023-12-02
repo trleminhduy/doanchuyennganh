@@ -73,7 +73,7 @@ session_start();
                             <a class="nav-link" href="../display_all.php">Sản phẩm</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="profile.php">My Account</a>
+                            <a class="nav-link" href="profile.php">Trang cá nhân</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Liên hệ</a>

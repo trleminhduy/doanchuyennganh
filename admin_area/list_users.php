@@ -4,12 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Danh sách user</title>
 </head>
 
 <body>
     <h3 class="text-center">
-        ALL USERS
+        TẤT CẢ USERS
     </h3>
 
     <table class="table table-bordered mt-5">
@@ -24,12 +24,12 @@
                 echo "<h2 class='text-danger text-center mt-5' >KHONG CO USER NAO</h2>";
             } else {
                 echo "<tr>
-                <th>N.O</th>
-                <th>Username</th>
+                <th>STT</th>
+                <th>Tên đăng nhập</th>
                 <th>User email</th>
-                <th>User address</th>
-                <th>User Mobile</th>
-                <th>Delete</th>
+                <th>User địa chỉ</th>
+                <th>User điện thoại</th>
+                <th>Xoá</th>
             </tr>
         </thead>
         <tbody>";

@@ -4,12 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Danh sách cổng thanh toán</title>
 </head>
 
 <body>
     <h3 class="text-center">
-        ALL ORDERS PAYMENT
+        TẤT CẢ THANH TOÁN QUA CỔNG
     </h3>
 
     <table class="table table-bordered mt-5">
@@ -21,15 +21,15 @@
 
 
             if ($row_count == 0) {
-                echo "<h2 class='text-danger text-center mt-5' >KHONG CO THANH TOAN NAO</h2>";
+                echo "<h2 class='text-danger text-center mt-5' >KHÔNG CÓ THANH TOÁN NÀO</h2>";
             } else {
                 echo "<tr>
-                <th>N.O</th>
-                <th>Invoice number</th>
-                <th>Amount</th>
-                <th>Payment method</th>
-                <th>Order date</th>
-                <th>Delete</th>
+                <th>STT</th>
+                <th>Số hoá đơn</th>
+                <th>Số lượng</th>
+                <th>Phương thức thanh toán</th>
+                <th>Ngày đặt</th>
+                <th>Xoá</th>
             </tr>
         </thead>
         <tbody>";

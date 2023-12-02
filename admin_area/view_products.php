@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Xem danh sách sản phẩm</title>
     <!-- font awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
@@ -30,14 +30,14 @@
     <table class=" table table-bordered mt-5 text-center">
         <thead>
             <tr>
-                <th>Product id</th>
-                <th>Product title</th>
-                <th>Product image</th>
-                <th>Product price</th>
-                <th>Total sold</th>
-                <th>Status</th>
-                <th>Edit</th>
-                <th>Delete</th>
+                <th>ID Sản phẩm</th>
+                <th>Tựa đề sản phẩm</th>
+                <th>Hình ảnh sản phẩm</th>
+                <th>Giá tiền</th>
+                <th>Tổng được bán ra</th>
+                <th>Trạng thái</th>
+                <th>Chỉnh sửa</th>
+                <th>Xoá</th>
 
             </tr>
         </thead>

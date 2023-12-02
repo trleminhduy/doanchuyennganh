@@ -14,10 +14,10 @@ if (isset($_POST['edit_cat'])) {
     $update_query = "UPDATE `danhmuc` SET `danhmuc_title` = '$cat_title' WHERE `danhmuc_id` = '$edit_category'";
     $result = mysqli_query($con, $update_query);
     if ($result) {
-        echo "<script>alert('Edit category success');</script>";
+        echo "<script>alert('Chỉnh sửa danh mục thành công');</script>";
         echo "<script>window.location.href='index.php?view_categories'</script>";
     } else {
-        echo "<script>alert('Edit category fail');</script>";
+        echo "<script>alert('Lỗi chỉnh sửa');</script>";
         echo "<script>window.location.href='index.php?view_categories'</script>";
     }
 
@@ -27,13 +27,13 @@ if (isset($_POST['edit_cat'])) {
 
 ?>
 <div class="container mt-3">
-    <h1 class="text-center text-danger">EDIT CATEGORY</h1>
+    <h1 class="text-center text-danger">CHỈNH SỬA DANH MỤC</h1>
     <form action="" method="post" class="text-center">
         <div class="form-outline mb-4 w-50 m-auto">
-            <label for="category_title" class="form-label">Category title</label>
+            <label for="category_title" class="form-label">Tên danh mục</label>
             <input type="text" name="category_title" class="form-control text-center" required
                 value="<?php echo $category_title ?>">
         </div>
-        <input type="submit" value="UPDATE" class="btn btn-danger px-3 mb-3" name="edit_cat">
+        <input type="submit" value="UPDATE" class="btn btn-danger px-3 mb-3 mt-3" name="edit_cat">
     </form>
 </div>

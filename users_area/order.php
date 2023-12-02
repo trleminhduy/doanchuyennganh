@@ -50,7 +50,7 @@ if ($quantity == 0) {
 $insert_orders = "Insert into`user_orders` (user_id,amount_due,invoice_number,total_products,order_date,order_status) values ($user_id,$subtotal,$invoice_number,$count_products,NOW(),'$status' ) ";
 $result_query = mysqli_query($con, $insert_orders);
 if ($result_query) {
-    echo "<script>alert('order them thanh cong')</script>";
+    echo "<script>alert('Order của bạn đã được ghi nhận')</script>";
     echo "<script>window.open('profile.php','_self')</script>";
 
 }

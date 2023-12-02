@@ -10,7 +10,7 @@ include('../functions/common_function.php');
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Registration</title>
+    <title>Admin Đăng ký</title>
     <!-- bootstrap css link -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
@@ -32,7 +32,7 @@ include('../functions/common_function.php');
 <body class="bg-light">
     <div class="container-fluid m-3">
         <h2 class="text-center text-success mb-5">
-            DANG KY ADMIN
+            ĐĂNG KÝ TÀI KHOẢN ADMIN
         </h2>
         <div class="row d-flex justify-content-center ">
             <div class="col-lg-4 col-xl-3 ">
@@ -61,8 +61,8 @@ include('../functions/common_function.php');
                     </div>
                     <input type="submit" class=" btn bg-info border-0 py-2 px-3 mt-3" value="DANG KY"
                         name="admin_register">
-                    <p class="small fw-bold mt-2">Da co tai khoan <a href="admin_login.php"
-                            class="link-danger">LOGIN</a></p>
+                    <p class="small fw-bold mt-2">Đã có tài khoản? <a href="admin_login.php" class="link-danger">Đăng
+                            nhập</a></p>
                 </form>
             </div>
         </div>

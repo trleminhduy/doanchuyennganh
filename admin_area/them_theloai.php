@@ -8,24 +8,25 @@ if (isset($_POST['insert_brand'])) {    //will trigger if user press "insert"
     $result_select = mysqli_query($con, $select_query);
     $number = mysqli_num_rows($result_select);
     if ($number > 0) {
-        echo "<script>alert('Da co trong he thong')</script>";
+        echo "<script>alert('Đã có nhà xuất bản trong hệ thống')</script>";
     } else {
 
 
         $insert_query = "insert into `theloai` (theloai_title) values ('$theloai_title')";
         $result = mysqli_query($con, $insert_query);
         if ($result) {
-            echo "<script>alert('success')</script>";
+            echo "Thêm thành công";
         }
     }
 }
 ?>
-<h2 class="text-center">Insert The loai</h2>
+<h2 class="text-center">Thêm nhà xuất bản</h2>
 
 <form action="" method="post" class="mb-2">
     <div class="input-group w-90 mb-2">
         <span class="input-group-text bg-info" id="basic-addon1"><i class="fa-solid fa-receipt"></i></span>
-        <input type="text" class="form-control" name="themtl_title" placeholder="Thêm thể loại" aria-label="theloai" aria-describedby="basic-addon1">
+        <input type="text" class="form-control" name="themtl_title" placeholder="Thêm thể loại" aria-label="theloai"
+            aria-describedby="basic-addon1">
     </div>
     <div class="input-group w-10 mb-2 m-auto">
 

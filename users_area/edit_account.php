@@ -54,14 +54,14 @@ if (isset($_POST['user_update'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chinh sua ho so</title>
+    <title>Chỉnh sửa hồ sơ</title>
 </head>
 
 <body>
-    <h3 class="text-center mb-4">Edit account</h3>
+    <h3 class="text-center mb-4">Chỉnh sửa tài khoản</h3>
     <form action="" method="post" enctype="multipart/form-data " class="text-center">
         <div class="form-outline mb-4">
-            <p>Ten user</p>
+            <p>Tên đăng nhập</p>
             <input type="text" class="form-control w-50 m-auto" value="<?php echo $username ?>" name="user_username">
         </div>
         <p>Email</p>

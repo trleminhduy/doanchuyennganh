@@ -29,48 +29,48 @@ include('../functions/common_function.php');
                     <!-- username field -->
                     <div class="form-outline mb-4">
                         <label for="user_username" class="form-label">Username</label>
-                        <input type="text" id="user_username" class="form-control" placeholder="Nhap ten nguoi dung"
+                        <input type="text" id="user_username" class="form-control" placeholder="Nhập Username"
                             autocomplete="off" required name="user_username">
                     </div>
                     <!-- email field -->
                     <div class="form-outline mb-4 ">
                         <label for="user_email" class="form-label">Email</label>
-                        <input type="email" id="user_email" class="form-control" placeholder="Nhap email nguoi dung"
+                        <input type="email" id="user_email" class="form-control" placeholder="Nhập Email"
                             autocomplete="off" required name="user_email">
                     </div>
                     <!-- image field -->
                     <div class="form-outline mb-4 ">
-                        <label for="user_image" class="form-label">User image</label>
+                        <label for="user_image" class="form-label">Hình đại diện</label>
                         <input type="file" id="user_image" class="form-control" name="user_image">
                     </div>
                     <!-- password field -->
                     <div class="form-outline mb-4 ">
                         <label for="user_password" class="form-label">Password</label>
-                        <input type="password" id="user_password" class="form-control" placeholder="Nhap mat khau"
+                        <input type="password" id="user_password" class="form-control" placeholder="Nhập mật khẩu"
                             autocomplete="off" required name="user_password">
                     </div>
                     <!-- confirm password field -->
                     <div class="form-outline mb-4 ">
-                        <label for="conf_user_password" class="form-label">Confirm Password</label>
+                        <label for="conf_user_password" class="form-label">Nhập lại mật khẩu</label>
                         <input type="password" id="conf_user_password" class="form-control"
-                            placeholder="Nhap lai mat khau" autocomplete="off" required name="conf_user_password">
+                            placeholder="Nhập lại mật khẩu" autocomplete="off" required name="conf_user_password">
                     </div>
                     <!-- address field -->
                     <div class="form-outline mb-4">
-                        <label for="user_address" class="form-label">Dia chi</label>
-                        <input type="text" id="user_address" class="form-control" placeholder="Nhap dia chi"
+                        <label for="user_address" class="form-label">Địa chỉ</label>
+                        <input type="text" id="user_address" class="form-control" placeholder="Nhập địa chỉ"
                             autocomplete="off" required name="user_address">
                     </div>
                     <!-- contact field -->
                     <div class="form-outline mb-4">
-                        <label for="user_contact" class="form-label">So dien thoai </label>
-                        <input type="text" id="user_contact" class="form-control" placeholder="Nhap so dien thoai"
+                        <label for="user_contact" class="form-label">Số điện thoại </label>
+                        <input type="text" id="user_contact" class="form-control" placeholder="Nhập số điện thoại"
                             autocomplete="off" required name="user_contact">
                     </div>
                     <div class="mt-4 pt-2">
                         <input type="submit" value="Register" class="bg-info py-2 px-3 border-0 rounded"
                             name="user_register">
-                        <p class="small fw-bold mt-2 pt-1">Da co tai khoan? <a href="user_login.php">Dang nhap</a></p>
+                        <p class="small fw-bold mt-2 pt-1">Đã có tài khoản? <a href="user_login.php">Đăng nhập</a></p>
                     </div>
 
 
@@ -118,7 +118,7 @@ if (isset($_POST['user_register'])) {
         $sql_execute = mysqli_query($con, $insert_query);
         move_uploaded_file($user_image_tmp, "./user_images/$user_image");
         if ($sql_execute) {
-            echo "<script> alert('Thêm data thành công')</script>";
+            echo "<script> alert('Tạo tài khoản thành công!')</script>";
         } else {
             echo "fail";
         }
@@ -131,7 +131,7 @@ if (isset($_POST['user_register'])) {
     $result_cart = mysqli_query($con, $select_cart_item);
     $rows_count = mysqli_num_rows($result_cart); //dem so dong
     if ($rows_count > 0) {
-        echo "<script> alert('Bạn có item trong giỏ hàng, hãy đăng nhập để thanh toán')</script>";
+        echo "<script> alert('Bạn có sách trong giỏ hàng, hãy đăng nhập để thanh toán')</script>";
         echo "<script> window.open('checkout.php','_self')</script>";
 
 

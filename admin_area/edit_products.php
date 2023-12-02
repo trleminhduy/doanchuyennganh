@@ -38,25 +38,25 @@ $theloai_title = $row_brands['theloai_title'];
 
 
 
-<div class="container mt-5">
-    <h1 class="text-center">Edit products</h1>
+<div class="container mt-4">
+    <h1 class="text-center text-danger">CHỈNH SỬA SẢN PHẨM</h1>
     <form action="" method="post" enctype="multipart/form-data">
         <div class="form-outline w-50 m-auto mb-4">
-            <label for="product_title" class="form-label"> Product title</label>
+            <label for="product_title" class="form-label"> Tiêu đề sản phẩm </label>
             <input type="text" name="product_title" value="<?php echo $product_title ?>" class="form-control" required>
         </div>
-        <div class="form-outline w-50 m-auto mb-4">
-            <label for="product_title" class="form-label"> Product description</label>
+        <div class="form-outline w-50 m-auto mb-4 mt-2">
+            <label for="product_title" class="form-label mt-2"> Mô tả sản phẩm </label>
             <input type="text" name="product_description" value="<?php echo $product_description ?>"
                 class="form-control" required>
         </div>
         <div class="form-outline w-50 m-auto mb-4">
-            <label for="product_keywords" class="form-label"> Product keywords</label>
+            <label for="product_keywords" class="form-label mt-2"> Từ khoá tìm kiếm </label>
             <input type="text" value="<?php echo $product_keywords ?>" name="product_keywords" class="form-control"
                 required>
         </div>
         <div class="form-outline w-50 m-auto mb-4">
-            <label for="product_category" class="form-label"> Product category</label>
+            <label for="product_category" class="form-label mt-2"> Thuộc danh mục? </label>
             <select name="product_category" id="" class="form-select">
                 <option value="<?php echo $danhmuc_title ?>">
                     <?php echo $danhmuc_title ?>
@@ -75,7 +75,7 @@ $theloai_title = $row_brands['theloai_title'];
             </select>
         </div>
         <div class="form-outline w-50 m-auto mb-4">
-            <label for="product_brands" class="form-label"> Product brands</label>
+            <label for="product_brands" class="form-label mt-2"> Thuộc NXB? </label>
             <select name="product_brands" id="" class="form-select">
                 <option value="<?php echo $theloai_title ?>">
                     <?php echo $theloai_title ?>
@@ -94,7 +94,7 @@ $theloai_title = $row_brands['theloai_title'];
             </select>
         </div>
         <div class="form-outline w-50 m-auto mb-4">
-            <label for="product_image1" class="form-label"> Product image 1</label>
+            <label for="product_image1" class="form-label "> Hình 1</label>
             <div class="d-flex">
                 <input type="file" name="product_image1" class="form-control w-90 m-auto" required>
                 <img src="../asset/img/<?php echo $product_image1 ?>" alt="" class="edit_image">
@@ -102,7 +102,7 @@ $theloai_title = $row_brands['theloai_title'];
             </div>
         </div>
         <div class="form-outline w-50 m-auto mb-4">
-            <label for="product_image2" class="form-label"> Product image 2</label>
+            <label for="product_image2" class="form-label "> Hình 2</label>
             <div class="d-flex">
                 <input type="file" name="product_image2" class="form-control w-90 m-auto" required>
                 <img src="../asset/img/<?php echo $product_image2 ?>" alt="" class="edit_image">
@@ -110,19 +110,19 @@ $theloai_title = $row_brands['theloai_title'];
             </div>
         </div>
         <div class="form-outline w-50 m-auto mb-4">
-            <label for="product_image3" class="form-label"> Product image 3</label>
+            <label for="product_image3" class="form-label "> Hình 3</label>
             <div class="d-flex">
-                <input type="file" name="product_image3" class="form-control w-90 m-auto" required>
+                <input type="file" name="product_image3" class="form-control w-90 m-auto">
                 <img src="../asset/img/<?php echo $product_image3 ?>" alt="" class="edit_image">
 
             </div>
         </div>
         <div class="form-outline w-50 m-auto mb-4">
-            <label for="product_price" class="form-label"> Price</label>
-            <input type="text" value="<?php echo $product_price ?>" name="product_price" class="form-control" required>
+            <label for="product_price" class="form-label "> Giá tiền </label>
+            <input type="text" value="<?php echo $product_price ?>" name="product_price" class="form-control " required>
         </div>
         <div class="text-center">
-            <input type="submit" name="edit_product" value="Cập nhật" class="btn btn-danger border-0 px-3 py-2 ">
+            <input type="submit" name="edit_product" value="Cập nhật" class="btn btn-danger border-0 px-3 py-2 mt-2 ">
         </div>
     </form>
 </div>

@@ -11,7 +11,7 @@ include('../functions/common_function.php');
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Registration</title>
+    <title>Đăng nhập Admin</title>
     <!-- bootstrap css link -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
@@ -33,7 +33,7 @@ include('../functions/common_function.php');
 <body class="bg-light">
     <div class="container-fluid m-3">
         <h2 class="text-center text-success mb-5">
-            ADMIN DANG NHAP
+            ADMIN ĐĂNG NHẬP
         </h2>
         <div class="row d-flex justify-content-center ">
             <div class="col-lg-4 col-xl-3 ">
@@ -53,10 +53,10 @@ include('../functions/common_function.php');
                         <input type="password" id="password" name="admin_password" placeholder="Nhap password">
                     </div>
 
-                    <input type="submit" class=" btn bg-info border-0 py-2 px-3 mt-3" value="DANG NHAP"
+                    <input type="submit" class=" btn bg-info border-0 py-2 px-3 mt-3" value="ĐĂNG NHẬP"
                         name="admin_login">
-                    <p class="small fw-bold mt-2">Chua co tai khoan <a href="admin_registration.php"
-                            class="link-danger">DANG KY</a></p>
+                    <p class="small fw-bold mt-2">Chưa có tài khoản? <a href="admin_registration.php"
+                            class="link-danger">Đăng ký</a></p>
                 </form>
             </div>
         </div>
