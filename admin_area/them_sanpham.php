@@ -72,17 +72,17 @@ if (isset($_POST['insert_product'])) {
 
 <body class="bg-light">
     <div class="container mt-3">
-        <h1 class="text-center">THÊM SẢN PHẨM</h1>
+        <h1 class="text-center text-success">THÊM SẢN PHẨM</h1>
 
         <!-- form -->
 
         <form action="" method="post" enctype="multipart/form-data">
             <!-- title -->
             <div class="form-outline mb-4 w-50 m-auto">
-                <label for="product_title" class="form-label">Product Title</label>
+                <label for="product_title" class="form-label">Tên sản phẩm</label>
                 <!-- dòng for và id phải giống nhau, chỉ có name là khác -->
                 <input type="text" name="product_title" id="product_title" class="form-control"
-                    placeholder="Thêm tiêu đề sản phẩm" autocomplete="off" required="required">
+                    placeholder="Thêm tên sản phẩm" autocomplete="off" required="required">
 
 
 
@@ -90,10 +90,10 @@ if (isset($_POST['insert_product'])) {
 
             <!-- description -->
             <div class="form-outline mb-4 w-50 m-auto">
-                <label for="description class=" form-label">Product description</label>
+                <label for="description class=" form-label">Mô tả sản phẩm</label>
                 <!-- dòng for và id phải giống nhau, chỉ có name là khác -->
                 <input type="text" name="description" id="description" class="form-control"
-                    placeholder="Thêm description sản phẩm" autocomplete="off" required="required">
+                    placeholder="Thêm mô tả sản phẩm" autocomplete="off" required="required">
 
 
 
@@ -101,10 +101,10 @@ if (isset($_POST['insert_product'])) {
 
             <!-- keyword -->
             <div class="form-outline mb-4 w-50 m-auto">
-                <label for="product_keyword class=" form-label">Product keyword</label>
+                <label for="product_keyword class=" form-label">Từ khoá tìm kiếm</label>
                 <!-- dòng for và id phải giống nhau, chỉ có name là khác -->
                 <input type="text" name="product_keyword" id="product_keyword" class="form-control"
-                    placeholder="Thêm keyword sản phẩm" autocomplete="off" required="required">
+                    placeholder="Thêm keyword để tìm sản phẩm" autocomplete="off" required="required">
             </div>
 
             <!-- danh muc -->
@@ -146,19 +146,19 @@ if (isset($_POST['insert_product'])) {
 
             <!-- Image 1 -->
             <div class="form-outline mb-4 w-50 m-auto">
-                <label for="product_image1 class=" form-label">Product image 1</label>
+                <label for="product_image1 class=" form-label">Hình 1</label>
                 <input type="file" name="product_image1" id="product_image1" class="form-control">
             </div>
 
             <!-- Image 2 -->
             <div class="form-outline mb-4 w-50 m-auto">
-                <label for="product_image2 class=" form-label">Product image 2</label>
+                <label for="product_image2 class=" form-label">Hình 2</label>
                 <input type="file" name="product_image2" id="product_image2" class="form-control">
             </div>
 
             <!-- Image 3 -->
             <div class="form-outline mb-4 w-50 m-auto">
-                <label for="product_image3 class=" form-label">Product image 3</label>
+                <label for="product_image3 class=" form-label">Hình 3</label>
                 <input type="file" name="product_image3" id="product_image3" class="form-control">
             </div>
 

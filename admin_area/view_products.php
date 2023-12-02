@@ -30,8 +30,8 @@
     <table class=" table table-bordered mt-5 text-center">
         <thead>
             <tr>
-                <th>ID Sản phẩm</th>
-                <th>Tựa đề sản phẩm</th>
+                <th>ID sản phẩm</th>
+                <th>Tên sản phẩm</th>
                 <th>Hình ảnh sản phẩm</th>
                 <th>Giá tiền</th>
                 <th>Tổng được bán ra</th>
