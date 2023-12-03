@@ -93,7 +93,7 @@ function get_unique_categories()
         $result_query = mysqli_query($con, $select_query);
         $num_of_rows = mysqli_num_rows($result_query);
         if ($num_of_rows == 0) {
-            echo "<h2 class='text-center text-danger'>No products found</h2>";
+            echo "<h2 class='text-center text-danger'>Không tìm thấy sản phẩm</h2>";
         }
         while ($row = mysqli_fetch_assoc($result_query)) {
             $product_id = $row['product_id'];
@@ -133,7 +133,7 @@ function get_unique_brand()
         $result_query = mysqli_query($con, $select_query);
         $num_of_rows = mysqli_num_rows($result_query);
         if ($num_of_rows == 0) {
-            echo "<h2 class='text-center text-danger'>No products found</h2>";
+            echo "<h2 class='text-center text-danger'>Không tìm thấy sản phẩm</h2>";
         }
         while ($row = mysqli_fetch_assoc($result_query)) {
             $product_id = $row['product_id'];
@@ -245,11 +245,11 @@ function search_product()
     if (isset($_GET['search_data_product'])) {
         $search_data_value = $_GET['search_data'];
         //condition to check isset or not
-        $search_query = "Select * from `products` where product_keyword like '$search_data_value'";
+        $search_query = "Select * from `products` where product_keyword like '%$search_data_value%'";
         $result_query = mysqli_query($con, $search_query);
         $num_of_rows = mysqli_num_rows($result_query);
         if ($num_of_rows == 0) {
-            echo "<h2 class='text-center text-danger'>No products found</h2>";
+            echo "<h2 class='text-center text-danger'>Không tìm thấy sản phẩm</h2>";
         }
 
         while ($row = mysqli_fetch_assoc($result_query)) {
