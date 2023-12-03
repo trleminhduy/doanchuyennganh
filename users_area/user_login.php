@@ -38,19 +38,20 @@ include('../functions/common_function.php');
 
                     <!-- password field -->
                     <div class="form-outline mb-4 ">
-                        <label for="user_password" class="form-label">Password</label>
+                        <label for="user_password" class="form-label">Mật khẩu</label>
                         <input type="password" id="user_password" class="form-control" placeholder="Nhập mật khẩu"
                             autocomplete="off" required name="user_password">
                     </div>
 
                     <div class="mt-4 pt-2">
-                        <input type="submit" value="Login" class="bg-info py-2 px-3 border-0 rounded" name="user_login">
+                        <input type="submit" value="Đăng nhập" class=" bg-info py-2 px-3 border-0 rounded"
+                            name="user_login">
                         <p class="small fw-bold mt-2 pt-1">Chưa có tài khoản? <a href="user_registration.php">Đăng
                                 ký</a></p>
                     </div>
 
 
-                </form>
+                </form> 
 
             </div>
         </div>

@@ -51,7 +51,7 @@ if (isset($_POST['confirm_payment'])) {
                     value="<?php echo $invoice_number ?>">
             </div>
             <div class="form-outline my-4 text-center w-50 m-auto">
-                <label for="">Amount</label>
+                <label for="">Tổng tiền</label>
 
                 <input type="text" class="form-control w-50 m-auto" name="amount" value="<?php echo $amount_due ?>">
             </div>

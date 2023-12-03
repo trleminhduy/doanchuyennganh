@@ -27,11 +27,11 @@
         <thead class="bg-info">
             <tr>
                 <th>STT</th>
-                <th>Amount due</th>
-                <th>Tổng đơn hàng</th>
+                <th>Tổng tiền</th>
+                <th>Tổng số lượng đơn hàng</th>
                 <th>Số hoá đơn</th>
                 <th>Ngày đặt</th>
-                <th>Thành công/Không thành công</th>
+                <th>Chưa thanh toán/Đã thanh toán</th>
                 <th>Trạng thái</th>
             </tr>
         </thead>
@@ -47,9 +47,9 @@
                 $total_products = $row_orders['total_products'];
                 $order_status = $row_orders['order_status'];
                 if ($order_status == 'pending') {
-                    $order_status_display = 'Chua xu ly';
+                    $order_status_display = 'Chưa xác nhận thanh toán';
                 } else {
-                    $order_status_display = ' thanh cong';
+                    $order_status_display = ' Đã thanh toán';
                 }
                 $order_date = $row_orders['order_date'];
 
@@ -64,7 +64,7 @@
                 if ($order_status == 'Complete') {
                     echo "<td>Đã thanh toán</td>";
                 } else {
-                    echo "<td><a href='confirm_payment.php?order_id=$order_id'>Confirm</a></td>";
+                    echo "<td><a href='confirm_payment.php?order_id=$order_id'>Đang chờ xác nhận</a></td>";
                 }
 
                 echo "</tr>";

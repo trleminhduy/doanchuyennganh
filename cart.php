@@ -138,12 +138,12 @@ session_start();
                             if ($result_count > 0) {
                                 echo "  <thead>
                             <tr>
-                                <th>Ten sp</th>
-                                <th>Hinh sp</th>
-                                <th>So luong</th>
-                                <th>Tong gia tien</th>
-                                <th>Xoa khoi cart</th>
-                                <th colspan='2'>Operation</th>
+                                <th>Tên sản phẩm</th>
+                                <th>Hình sản phẩm</th>
+                                <th>Số lượng</th>
+                                <th>Tổng cộng </th>
+                                <th>Xoá khỏi giỏ hàng</th>
+                                <th colspan='2'>Hành động</th>
                             </tr>
                         </thead>";
                                 while ($row = mysqli_fetch_array($result)) {
@@ -183,14 +183,14 @@ session_start();
                                             <td><input type="checkbox" name="removeitem[]" value="<?php echo $product_id ?>"></td>
                                             <td>
                                                 <!-- <button class="bg-info px-3 py-1 border-0 mx-2 "> Update</button> -->
-                                                <input type="submit" value="Update Cart" class="bg-info px-3 py-1 border-0 mx-2"
-                                                    name="update_cart">
+                                                <input type="submit" value="Cập nhật giỏ hàng"
+                                                    class="btn bg-info px-3 py-1 border-0 mx-2" name="update_cart">
 
                                             </td>
                                             <td>
                                                 <!-- <button class="bg-info px-3 py-1 border-0 mx-2 "> Xoa</button> -->
-                                                <input type="submit" value="Remove" class="bg-info px-3 py-1 border-0 mx-2"
-                                                    name="remove_cart">
+                                                <input type="submit" value="Xoá khỏi giỏ hàng"
+                                                    class="btn bg-danger text-light px-3 py-1 border-0 mx-2" name="remove_cart">
 
                                             </td>
                                         </tr>
@@ -216,11 +216,11 @@ session_start();
                             echo "<h4 class='px-3'></h4>Subtotal: <strong class='text-danger'>
                                  $total_price 
                             </strong> </h4>
-                         <input type='submit' value='Continue shopping' class='bg-secondary px-3 py-1 border-0 mx-2'
+                         <input type='submit' value='Tiếp tục mua sắm' class='btn bg-secondary text-light px-3 py-1 border-0 mx-2'
                                                     name='continue_shopping'>
-                        <button class='bg-info  px-3 py-2 border-0 text-light '><a href='./users_area/checkout.php' class='text-light text-decoration-none'>Thanh toan</button>";
+                        <button class='btn bg-danger  px-3 py-2 border-0 text-light '><a href='./users_area/checkout.php' class=' text-light text-decoration-none'>Thanh toán giỏ hàng</button>";
                         } else {
-                            echo " <input type='submit' value='Continue shopping' class='bg-info px-3 py-1 border-0 mx-2'
+                            echo " <input type='submit' value='Tiếp tục mua sắm' class='bg-info px-3 py-1 border-0 mx-2'
                                                     name='continue_shopping'>";
                         }
                         if (isset($_POST['continue_shopping'])) {
@@ -260,7 +260,7 @@ session_start();
 
             if (isset($_POST['remove_cart'])) {
                 if (empty($_POST['removeitem'])) {
-                    echo "<script>alert('Need to click on the checkbox first')</script>";
+                    echo "<script>alert('Hãy chọn vào checkbox trước khi xoá')</script>";
                 } else {
                     foreach ($_POST['removeitem'] as $remove_id) {
                         echo $remove_id;
