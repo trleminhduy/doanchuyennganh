@@ -3,6 +3,24 @@ include('../includes/connect.php');
 include('../functions/common_function.php');
 @session_start();
 
+if (isset($_POST['admin_login'])) {
+    $admin_username = $_POST['admin_username'];
+    $admin_password = $_POST['admin_password'];
+
+    $select_query = "SELECT * FROM `admin_table` WHERE admin_name ='$admin_username' ";
+    $result = mysqli_query($con, $select_query);
+    $row_count = mysqli_num_rows($result);
+    $row_data = mysqli_fetch_assoc($result);
+
+    if ($row_count > 0 && password_verify($admin_password, $row_data['admin_password'])) {
+        $_SESSION['admin_username'] = $admin_username;
+
+        echo "<script>alert('Đăng nhập thành công') </script>";
+        echo "<script> window.open('index.php','_self')</script>";
+    } else {
+        echo "<script>alert('Tài khoản hoặc mật khẩu không chính xác') </script>";
+    }
+}
 
 ?>
 <!DOCTYPE html>
@@ -64,24 +82,3 @@ include('../functions/common_function.php');
 </body>
 
 </html>
-
-<?php
-if (isset($_POST['admin_login'])) {
-    $admin_username = $_POST['admin_username'];
-    $admin_password = $_POST['admin_password'];
-
-    $select_query = "SELECT * FROM `admin_table` WHERE admin_name ='$admin_username' ";
-    $result = mysqli_query($con, $select_query);
-    $row_count = mysqli_num_rows($result);
-    $row_data = mysqli_fetch_assoc($result);
-
-    if ($row_count > 0 && password_verify($admin_password, $row_data['admin_password'])) {
-        $_SESSION['admin_username'] = $admin_username;
-
-        echo "<script>alert('Đăng nhập thành công') </script>";
-        echo "<script> window.open('index.php','_self')</script>";
-    } else {
-        echo "<script>alert('Tài khoản hoặc mật khẩu không chính xác') </script>";
-    }
-}
-?>

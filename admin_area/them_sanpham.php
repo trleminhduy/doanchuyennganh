@@ -174,6 +174,9 @@ if (isset($_POST['insert_product'])) {
             <div class="form-outline mb-4 w-50 m-auto">
                 <input type="submit" name="insert_product" class="btn btn-info mt-3" value="Thêm sản phẩm">
             </div>
+            <div class="form-outline mb-4 w-50 m-auto">
+                <a href="./index.php">Quay về trang admin</a>
+            </div>
         </form>
     </div>
 

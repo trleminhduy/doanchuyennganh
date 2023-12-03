@@ -1,6 +1,13 @@
 <?php
 include('../includes/connect.php');
 include('../functions/common_function.php');
+@session_start();
+if (!isset($_SESSION['admin_username'])) {
+    header("Location: admin_login.php"); // Redirect to login page
+    exit();
+}
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -98,7 +105,7 @@ include('../functions/common_function.php');
                             toán</a></button>
                     <button><a href="index.php?list_users" class="nav-link text-light bg-info my-1">User
                             lists</a></button>
-                    <button><a href="" class="nav-link text-light bg-info my-1">Đăng xuất</a></button>
+                    <button><a href="admin_logout.php" class="nav-link text-light bg-info my-1">Đăng xuất</a></button>
                 </div>
             </div>
         </div>
