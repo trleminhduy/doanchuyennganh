@@ -141,7 +141,7 @@ session_start();
                                 <th>Tên sản phẩm</th>
                                 <th>Hình sản phẩm</th>
                                 <th>Số lượng</th>
-                                <th>Tổng cộng </th>
+                                <th>Thành tiền </th>
                                 <th>Xoá khỏi giỏ hàng</th>
                                 <th colspan='2'>Hành động</th>
                             </tr>
@@ -213,7 +213,7 @@ session_start();
                         $result = mysqli_query($con, $cart_query);
                         $result_count = mysqli_num_rows($result);
                         if ($result_count > 0) {
-                            echo "<h4 class='px-3'></h4>Subtotal: <strong class='text-danger'>
+                            echo "<h4 class='px-3'></h4>Tổng số tiền:  <strong class='text-danger'> 
                                  $total_price 
                             </strong> </h4>
                          <input type='submit' value='Tiếp tục mua sắm' class='btn bg-secondary text-light px-3 py-1 border-0 mx-2'

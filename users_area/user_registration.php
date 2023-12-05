@@ -10,7 +10,7 @@ include('../functions/common_function.php');
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>REGISTER</title>
+    <title>ĐĂNG KÝ TÀI KHOẢN - PAGE</title>
     <link rel="stylesheet" href="/asset/style.css">
 
     <!-- bootstrap css link -->
@@ -21,7 +21,7 @@ include('../functions/common_function.php');
 
 <body>
     <div class="container-fluid my-3">
-        <h2 class="text-center">REGISTER</h2>
+        <h2 class="text-center">ĐĂNG KÝ TÀI KHOẢN</h2>
         <div class="row d-flex align-items-center justify-content-center">
             <div class="lg-12 col-xl-6">
                 <!-- phai co enctype de them image -->
@@ -68,9 +68,15 @@ include('../functions/common_function.php');
                             autocomplete="off" required name="user_contact">
                     </div>
                     <div class="mt-4 pt-2">
-                        <input type="submit" value="Register" class="bg-info py-2 px-3 border-0 rounded"
+                        <input type="submit" value="Đăng ký" class="bg-info py-2 px-3 border-0 rounded"
                             name="user_register">
                         <p class="small fw-bold mt-2 pt-1">Đã có tài khoản? <a href="user_login.php">Đăng nhập</a></p>
+                    </div>
+                    <div>
+                        <p class="small fw-bold mt-2 pt-1 ">Quay về trang chủ <a class="text-danger"
+                                href="\ECOMMERCE\index.php">Ấn vào
+                                đây</a></p>
+
                     </div>
 
 
@@ -107,7 +113,8 @@ if (isset($_POST['user_register'])) {
     $result = mysqli_query($con, $select_query); //neu co thi execute cau lenh
     $rows_count = mysqli_num_rows($result); //dem so dong
     if ($rows_count > 0) {
-        echo "<script> alert('Username hoặc email đã tồn tại!')</script>";
+        echo "<script> alert('Tên tài khoản hoặc email đã tồn tại!')</script>";
+        echo "<script>window.open('register.php','_self')</script>";
 
     } elseif ($user_password != $conf_user_password) {
         echo "<script> alert('MẬT KHẨU KHÔNG TRÙNG NHAU!')</script>";

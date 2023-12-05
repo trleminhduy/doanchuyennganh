@@ -49,6 +49,8 @@ $theloai_title = $row_brands['theloai_title'];
             <label for="product_title" class="form-label mt-2"> Mô tả sản phẩm </label>
             <input type="text" name="product_description" value="<?php echo $product_description ?>"
                 class="form-control" required>
+
+
         </div>
         <div class="form-outline w-50 m-auto mb-4">
             <label for="product_keywords" class="form-label mt-2"> Từ khoá tìm kiếm </label>

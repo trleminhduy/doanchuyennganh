@@ -26,8 +26,8 @@
 </head>
 
 <body>
-    <h3 class="text-center">ALL PRODUCT</h3>
-    <table class=" table table-bordered mt-5 text-center">
+    <h3 class="text-center text-success">TẤT CẢ SẢN PHẨM</h3>
+    <table class=" table table-bordered mt-5 text-center ">
         <thead>
             <tr>
                 <th>ID sản phẩm</th>

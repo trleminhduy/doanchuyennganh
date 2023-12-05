@@ -42,6 +42,11 @@ session_start();
         .button:hover {
             background-color: #2980b9;
         }
+
+        .img-banner {
+            width: 1500px;
+            height: 360px;
+        }
     </style>
 
 
@@ -153,14 +158,12 @@ session_start();
         <!-- Third child -->
 
         <div class="bg-light">
-            <h3 class="text-center">
-                CỬA HÀNG NOSTALGIA
-            </h3 class="text-center">
-            <p class="text-center"> ĐẶT SỰ TRẢI NGHIỆM CỦA BẠN LÊN HÀNG ĐẦU</p>
+            <img src="./asset/img/Branday_T12_1920x750.jpg" alt="" class="img-banner">
+
         </div>
 
         <!-- fourth child -->
-        <div class="row px-1">
+        <div class="row px-1 mt-5">
             <!-- sum up page bang 12 horizontal -->
             <div class="col-md-10">
                 <!-- products -->

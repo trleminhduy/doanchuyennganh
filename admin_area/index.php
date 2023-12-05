@@ -105,6 +105,8 @@ if (!isset($_SESSION['admin_username'])) {
                             toán</a></button>
                     <button><a href="index.php?list_users" class="nav-link text-light bg-info my-1">User
                             lists</a></button>
+                    <button><a href="index.php?promotion_mails" class="nav-link text-light bg-info my-1">Gửi mail khuyến
+                            mãi</a></button>
                     <button><a href="admin_logout.php" class="nav-link text-light bg-info my-1">Đăng xuất</a></button>
                 </div>
             </div>

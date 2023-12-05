@@ -33,7 +33,7 @@ if (isset($_POST['insert_cat'])) {    //will trigger if user press "insert"
     </div>
     <div class="input-group w-10 mb-2 m-auto">
 
-        <input type="submit" class="bg-info border-0 p-2 my-3" name="insert_cat" value="Thêm danh mục">
+        <input type="submit" class="btn bg-info border-0 p-2 my-3" name="insert_cat" value="Thêm danh mục">
 
 
     </div>

@@ -21,8 +21,9 @@ if (isset($_POST['insert_product'])) {
 
     //check condition
     if ($product_title == '' or $description == '' or $product_keyword == '' or $product_category == '' or $product_brands == '' or $product_price == '') {
-        echo "<script>alert('Hay nhap field')</script>";
-        exit();
+        echo "<script>alert('Hãy nhập đầy đủ!')</script>";
+        echo "<script>window.open('them_sanpham.php','_self')</script>";
+
     } else {
         move_uploaded_file($temp_image1, "./product_images/$product_image1");
         move_uploaded_file($temp_image2, "./product_images/$product_image2");
@@ -31,7 +32,8 @@ if (isset($_POST['insert_product'])) {
         $insert_products = "insert into `products` (product_title,product_description,product_keyword,danhmuc_id,theloai_id,product_image1,product_image2,product_image3,product_price,date,status) values('$product_title', '$description','$product_keyword','$product_category','$product_brands','$product_image1','$product_image2','$product_image3','$product_price',NOW(),$product_status)";
         $result_query = mysqli_query($con, $insert_products);
         if ($result_query) {
-            echo "<script>alert('Thêm thành công')</script>";
+            echo "THÊM THÀNH CÔNG";
+
 
         } else {
             echo "<script>alert('Lỗi thêm')</script>";
@@ -92,8 +94,8 @@ if (isset($_POST['insert_product'])) {
             <div class="form-outline mb-4 w-50 m-auto">
                 <label for="description class=" form-label">Mô tả sản phẩm</label>
                 <!-- dòng for và id phải giống nhau, chỉ có name là khác -->
-                <input type="text" name="description" id="description" class="form-control"
-                    placeholder="Thêm mô tả sản phẩm" autocomplete="off" required="required">
+                <textarea name="description" id="description" class="form-control" placeholder="Thêm mô tả sản phẩm"
+                    rows="4" autocomplete="off" required="required" style="word-wrap: break-word;"></textarea>
 
 
 

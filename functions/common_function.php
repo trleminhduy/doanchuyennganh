@@ -28,7 +28,7 @@ function getProducts()
                             <img src='./admin_area/product_images/$product_image1' class='card-img-top' alt='$product_title'>
                             <div class='card-body'>
                                 <h5 class='card-title'> $product_title</h5>
-                                <p class='card-text'>$product_description </p>
+                                
                                 <p class='card-text text-danger'>Giá tiền: $product_price</p>
 
                                 <a href='index.php?add_to_cart=$product_id' class='btn btn-info'>Thêm vào giỏ hàng</a>
@@ -68,8 +68,8 @@ function get_all_products()
                             <img src='./admin_area/product_images/$product_image1' class='card-img-top' alt='$product_title'>
                             <div class='card-body'>
                                 <h5 class='card-title'> $product_title</h5>
-                                <p class='card-text'>$product_description </p>
-                               <a href='index.php?add_to_cart=$product_id' class='btn btn-info'>Thêm vào giỏ hàng</a>
+                                
+                               <a href='index.php?add_to_cart=$product_id' class='btn btn-info mt-3'>Thêm vào giỏ hàng</a>
                                                                <a href='product_details.php?product_id=$product_id' class='btn btn-info mt-2 bg-light'>Xem thêm</a>
 
 
@@ -109,9 +109,11 @@ function get_unique_categories()
           <img src='./admin_area/product_images/$product_image1' class='card-img-top' alt='$product_title'>
           <div class='card-body'>
             <h5 class='card-title'> $product_title</h5>
-            <p class='card-text'>$product_description </p>
+            <p class='card-text'> $product_description </p>
+            <p class='card-text text-danger'>Giá tiền: $product_price </p>
+
             <a href='index.php?add_to_cart=$product_id' class='btn btn-info'>Thêm vào giỏ hàng</a>
-            <a href='product_details.php?product_id=$product_id' class='btn btn-info mt-2 bg-light'>Xem thêm</a>
+            <a href='product_details.php?product_id=$product_id' class='btn btn-info mt-2 '>Xem thêm</a>
 
           </div>
         </div>
@@ -150,8 +152,10 @@ function get_unique_brand()
           <div class='card-body'>
             <h5 class='card-title'> $product_title</h5>
             <p class='card-text'>$product_description </p>
+            <p class='card-text text-danger'>Giá tiền: $product_price </p>
+
             <a href='index.php?add_to_cart=$product_id' class='btn btn-info'>Thêm vào giỏ hàng</a>
-           <a href='product_details.php?product_id=$product_id' class='btn btn-info mt-2 bg-light'>Xem thêm</a>
+           <a href='product_details.php?product_id=$product_id' class='btn btn-info mt-2 '>Xem thêm</a>
 
           </div>
         </div>
@@ -305,7 +309,7 @@ function view_details()
                             <img src='./admin_area/product_images/$product_image1' class='card-img-top' alt='$product_title'>
                             <div class='card-body'>
                                 <h5 class='card-title'> $product_title</h5>
-                                <p class='card-text'>$product_description </p>
+                                
                                 <p class='card-text'>Price: $product_price</p>
 
                                <a href='index.php?add_to_cart=$product_id' class='btn btn-info'>Thêm vào giỏ hàng</a>
@@ -321,12 +325,22 @@ function view_details()
                                 <h4 class='text-center text-info mb-5'>Related </h4>
                             </div>
                             <div class='col-md-6'>
-                                <img src='./admin_area/product_images/$product_image2' class='card-img-top' alt='$product_title' class='card-img-top' alt='$product_title'>
+                                <img src='./admin_area/product_images/$product_image2' class='card-img-top-inside' alt='$product_title' class='card-img-top' alt='$product_title'>
 
                             </div>
                             <div class='col-md-6'>
-                                <img src='./admin_area/product_images/$product_image3' class='card-img-top' alt='$product_title' class='card-img-top' alt='$product_title'>
+                                <img src='./admin_area/product_images/$product_image3' class='card-img-top-inside' alt='$product_title' class='card-img-top' alt='$product_title'>
 
+                            </div>
+                            
+
+                            
+                        </div>
+                        <div class='row'>
+                           
+                            <div class='col-md-12'>
+                                 <p class='card-text mt-5 style='overflow-wrap: break-word;'>$product_description </p>
+                                 
                             </div>
 
                             
@@ -378,7 +392,7 @@ function cart()
         } else {
             $insert_query = "insert into `cart_details` (product_id,ip_address,quantity) values ($get_product_id,'$get_ip_add',0)";
             $result_query = mysqli_query($con, $insert_query);
-            echo "<script>alert('ĐÃ THÊM VÀO GIỎ HÀNG') </script>";
+
 
             echo "<script>window.open('index.php','_self')</script>";
 

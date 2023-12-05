@@ -32,6 +32,11 @@ session_start();
         width: 270px;
         height: 270px;
     }
+
+    .card-img-top-inside {
+        width: 247px;
+        height: 300px;
+    }
 </style>
 
 <body>

@@ -51,7 +51,7 @@ include('../functions/common_function.php');
                     </div>
 
 
-                </form> 
+                </form>
 
             </div>
         </div>
