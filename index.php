@@ -36,7 +36,7 @@ session_start();
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
 
         </script>
-
+    <script src="https://www.w3schools.com/lib/w3.js"></script>
 
 
 
@@ -55,8 +55,10 @@ session_start();
 
         .img-banner {
             width: 1500px;
-            height: 360px;
+            height: 543px;
         }
+
+      
     </style>
 
 </head>
@@ -84,7 +86,7 @@ session_start();
                             <a class="nav-link" href="display_all.php">Sản phẩm</a>
                         </li>
                         <?php
-                        if (isset($_SESSION['username'])) {
+                        if(isset($_SESSION['username'])) {
                             echo "  <li class='nav-item'>
                             <a class='nav-link' href='./users_area/profile.php'>Trang cá nhân</a>
                         </li>";
@@ -130,18 +132,18 @@ session_start();
             <ul class="navbar-nav me-auto">
                 <!-- show username session -->
                 <?php
-                if (!isset($_SESSION['username'])) { //neu cái session chưa được active thì hiện button đăng nhập
+                if(!isset($_SESSION['username'])) { //neu cái session chưa được active thì hiện button đăng nhập
                     echo "<li class='nav-item'>
                     <a class='nav-link' href='#'>Xin chào: Khách</a>
                 </li>";
                 } else {  //nếu session đã active rồi thì show button đăng xuất
                     echo "<li class='nav-item'>
-                    <a class='nav-link' href='#'>Xin chao: " . $_SESSION['username'] . " </a>
+                    <a class='nav-link' href='#'>Xin chao: ".$_SESSION['username']." </a>
                 </li>";
                 }
 
                 //login logout session
-                if (!isset($_SESSION['username'])) { //neu cái session chưa được active thì hiện button đăng nhập
+                if(!isset($_SESSION['username'])) { //neu cái session chưa được active thì hiện button đăng nhập
                     echo "<li class='nav-item'>
                     <a class='nav-link' href='./users_area/user_login.php'>Đăng nhập</a>
                 </li>";
@@ -161,6 +163,14 @@ session_start();
 
         <div class="bg-light">
             <img src="./asset/img/YearEndSaleT1223_MainBanner_1920x700.png" alt="" class="img-banner">
+            <img src="./asset/img/Branday_T12_1920x750.jpg" alt="" class="img-banner">
+            <img src="./asset/img/banner3.png" alt="" class="img-banner">
+            <img src="./asset/img/banner4.png" alt="" class="img-banner">
+
+            <script>
+                w3.slideshow(".img-banner", 1750);
+            </script>
+
         </div>
 
         <!-- fourth child -->

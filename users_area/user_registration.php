@@ -12,6 +12,9 @@ include('../functions/common_function.php');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ĐĂNG KÝ TÀI KHOẢN - PAGE</title>
     <link rel="stylesheet" href="/asset/style.css">
+    <link rel="stylesheet" href="\ECOMMERCE\asset\dangki.css">
+
+
 
     <!-- bootstrap css link -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -95,7 +98,7 @@ include('../functions/common_function.php');
 <!-- php code -->
 
 <?php
-if (isset($_POST['user_register'])) {
+if(isset($_POST['user_register'])) {
     $user_username = $_POST['user_username'];
     $user_email = $_POST['user_email'];
     $user_password = $_POST['user_password'];
@@ -112,11 +115,11 @@ if (isset($_POST['user_register'])) {
     $select_query = "Select * from `user_table` where username ='$user_username' or user_email= '$user_email' "; //checkk db
     $result = mysqli_query($con, $select_query); //neu co thi execute cau lenh
     $rows_count = mysqli_num_rows($result); //dem so dong
-    if ($rows_count > 0) {
+    if($rows_count > 0) {
         echo "<script> alert('Tên tài khoản hoặc email đã tồn tại!')</script>";
         echo "<script>window.open('register.php','_self')</script>";
 
-    } elseif ($user_password != $conf_user_password) {
+    } elseif($user_password != $conf_user_password) {
         echo "<script> alert('MẬT KHẨU KHÔNG TRÙNG NHAU!')</script>";
 
     } else {
@@ -124,7 +127,7 @@ if (isset($_POST['user_register'])) {
         $insert_query = "insert into `user_table`(username,user_email,user_password,user_image,user_ip,user_address,user_mobile) values ('$user_username','$user_email', '$hash_password','$user_image','$user_ip','$user_address','$user_contact') ";
         $sql_execute = mysqli_query($con, $insert_query);
         move_uploaded_file($user_image_tmp, "./user_images/$user_image");
-        if ($sql_execute) {
+        if($sql_execute) {
             echo "<script> alert('Tạo tài khoản thành công!')</script>";
         } else {
             echo "fail";
@@ -137,7 +140,7 @@ if (isset($_POST['user_register'])) {
     $select_cart_item = "Select * from `cart_details` where ip_address='$user_ip'  "; //neu user chua login ma` user them cart items van se luu trong cart, neu user login thi hien thong bao va chuyen sang trang thong bao, truong hop user new thi redirect qua trang register
     $result_cart = mysqli_query($con, $select_cart_item);
     $rows_count = mysqli_num_rows($result_cart); //dem so dong
-    if ($rows_count > 0) {
+    if($rows_count > 0) {
         echo "<script> alert('Bạn có sách trong giỏ hàng, hãy đăng nhập để thanh toán')</script>";
         echo "<script> window.open('checkout.php','_self')</script>";
 

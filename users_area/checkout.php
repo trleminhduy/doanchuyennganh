@@ -16,6 +16,8 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CONG THANH TOAN</title>
     <link rel="stylesheet" href="./asset/style.css">
+    <!-- <link rel="stylesheet" href="../asset/dangnhap.css"> -->
+
 
     <!-- bootstrap css link -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -30,6 +32,16 @@ session_start();
         .card-img-top {
             width: 286px;
             height: 200px;
+
+            .navbar-search input,
+            .navbar-search button {
+                font-size: 14px;
+            }
+        }
+
+        .nav_logo {
+            width: 5%;
+            height: 5%;
         }
     </style>
 
@@ -43,7 +55,7 @@ session_start();
         <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
 
             <div class="container-fluid">
-                <img src="./asset/img/CMBG.png" alt="logo" class="nav_logo">
+                <img src="../asset/img/CMBG.png" alt="logo" class="nav_logo">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -83,16 +95,16 @@ session_start();
             <ul class="navbar-nav me-auto">
 
                 <?php
-                if (!isset($_SESSION['username'])) { //neu cái session chưa được active thì hiện button đăng nhập
+                if(!isset($_SESSION['username'])) { //neu cái session chưa được active thì hiện button đăng nhập
                     echo "<li class='nav-item'>
                     <a class='nav-link' href='#'>Xin chào: Khách</a>
                 </li>";
                 } else {  //nếu session đã active rồi thì show button đăng xuất
                     echo "<li class='nav-item'>
-                    <a class='nav-link' href='#'>Xin chao: " . $_SESSION['username'] . " </a>
+                    <a class='nav-link' href='#'>Xin chao: ".$_SESSION['username']." </a>
                 </li>";
                 }
-                if (!isset($_SESSION['username'])) { //neu cái session chưa được active thì hiện button đăng nhập
+                if(!isset($_SESSION['username'])) { //neu cái session chưa được active thì hiện button đăng nhập
                     echo "<li class='nav-item'>
                     <a class='nav-link' href='./user_login.php'>Đăng nhập</a>
                 </li>";
@@ -125,7 +137,7 @@ session_start();
                 <!-- products -->
                 <div class="row">
                     <?php
-                    if (!isset($_SESSION['username'])) { //neu user chua dang nhap redirect qua form dang nhap
+                    if(!isset($_SESSION['username'])) { //neu user chua dang nhap redirect qua form dang nhap
                         include('user_login.php');
                     } else {
                         include('payment.php'); //else redirect qua trang payment

@@ -24,6 +24,8 @@ session_start();
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    </script>
+    <script src="https://www.w3schools.com/lib/w3.js"></script>
 
     <style>
         .card-img-top {
@@ -45,7 +47,7 @@ session_start();
 
         .img-banner {
             width: 1500px;
-            height: 360px;
+            height: 543px;
         }
     </style>
 
@@ -158,7 +160,13 @@ session_start();
         <!-- Third child -->
 
         <div class="bg-light">
+            <img src="./asset/img/YearEndSaleT1223_MainBanner_1920x700.png" alt="" class="img-banner">
             <img src="./asset/img/Branday_T12_1920x750.jpg" alt="" class="img-banner">
+            <img src="./asset/img/banner3.png" alt="" class="img-banner">
+            <img src="./asset/img/banner4.png" alt="" class="img-banner">
+            <script>
+                w3.slideshow(".img-banner", 1750);
+            </script>
 
         </div>
 

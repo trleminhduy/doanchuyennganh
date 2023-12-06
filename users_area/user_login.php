@@ -13,6 +13,9 @@ include('../functions/common_function.php');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dăng nhập page</title>
     <link rel="stylesheet" href="/asset/style.css">
+    <link rel="stylesheet" href="\ECOMMERCE\asset\dangnhap.css">
+
+
 
     <!-- bootstrap css link -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -64,7 +67,7 @@ include('../functions/common_function.php');
 </html>
 
 <?php
-if (isset($_POST['user_login'])) {
+if(isset($_POST['user_login'])) {
     $user_username = $_POST['user_username'];
     $user_password = $_POST['user_password'];
 
@@ -80,13 +83,13 @@ if (isset($_POST['user_login'])) {
     $select_cart = mysqli_query($con, $select_query_cart);
     $row_count_cart = mysqli_num_rows($select_cart);
 
-    if ($row_count > 0) {
+    if($row_count > 0) {
         $_SESSION['username'] = $user_username;
 
-        if (password_verify($user_password, $row_data['user_password'])) {
+        if(password_verify($user_password, $row_data['user_password'])) {
             // echo "<script>alert('Đăng nhập thành công') </script>";
 
-            if ($row_count == 1 and $row_count_cart == 0) {
+            if($row_count == 1 and $row_count_cart == 0) {
                 $_SESSION['username'] = $user_username;
                 //check user login va cart kh co item thi redirect lai profile
                 echo "<script>alert('Đăng nhập thành công') </script>";
