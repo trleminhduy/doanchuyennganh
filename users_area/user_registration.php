@@ -14,6 +14,15 @@ include('../functions/common_function.php');
     <link rel="stylesheet" href="/asset/style.css">
     <link rel="stylesheet" href="\ECOMMERCE\asset\dangki.css">
 
+    <style>
+        .title {
+            text-align: center;
+            font-size: 30px;
+            font-weight: bold;
+            color: #3498db
+        }
+    </style>
+
 
 
     <!-- bootstrap css link -->
@@ -24,7 +33,8 @@ include('../functions/common_function.php');
 
 <body>
     <div class="container-fluid my-3">
-        <h2 class="text-center">ĐĂNG KÝ TÀI KHOẢN</h2>
+        <!-- <h2 class="text-center">ĐĂNG KÝ TÀI KHOẢN</h2> -->
+        <p class="title">ĐĂNG KÝ TÀI KHOẢN</p>
         <div class="row d-flex align-items-center justify-content-center">
             <div class="lg-12 col-xl-6">
                 <!-- phai co enctype de them image -->

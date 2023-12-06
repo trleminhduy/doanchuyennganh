@@ -46,30 +46,33 @@ session_start();
         }
 
         .img-banner {
-            width: 1500px;
+            width: 100%;
             height: 543px;
+        }
+
+        #topbTN {
+
+            position: fixed;
+            bottom: 20px;
+            right: 30px;
+            z-index: 99;
+            font-size: 18px;
+            border: none;
+            outline: none;
+            background-color: red;
+            color: white;
+            cursor: pointer;
+            padding: 5px;
+            border-radius: 4px;
+        }
+
+        #topbTN:hover {
+            background-color: #555;
         }
     </style>
 
 
-    <script>
-        $(document).ready(function () {
-            // Add smooth scrolling to all links
-            $("a").on('click', function (event) {
-                if (this.hash !== "") {
-                    event.preventDefault();
 
-                    var hash = this.hash;
-
-                    $('html, body').animate({
-                        scrollTop: $(hash).offset().top
-                    }, 800, function () {
-                        window.location.hash = hash;
-                    });
-                }
-            });
-        });
-    </script>
 
 
 
@@ -92,7 +95,7 @@ session_start();
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="./index.php">Home</a>
+                            <a class="nav-link active" aria-current="page" href="./index.php">Trang chủ</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="display_all.php">Sản phẩm</a>
@@ -115,14 +118,15 @@ session_start();
                         </li>
                     </ul>
                     <form class="d-flex" role="search" action="search_product.php" method="get">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
-                            name="search_data">
+                        <input class="form-control me-2" type="search" placeholder="Nhập tên sản phẩm"
+                            aria-label="Search" name="search_data">
 
                         <input type="submit" value="Search" class="btn btn-outline-light" name="search_data_product">
                     </form>
                 </div>
             </div>
         </nav>
+        <button onclick="topFunction()" id="topbTN" title="Go to top">TOP</button>
 
 
         <!-- second child -->
@@ -130,18 +134,18 @@ session_start();
             <ul class="navbar-nav me-auto">
 
                 <?php
-                if (!isset($_SESSION['username'])) { //neu cái session chưa được active thì hiện button đăng nhập
+                if(!isset($_SESSION['username'])) { //neu cái session chưa được active thì hiện button đăng nhập
                     echo "<li class='nav-item'>
                     <a class='nav-link' href='#'>Xin chào: Khách</a>
                 </li>";
                 } else {  //nếu session đã active rồi thì show button đăng xuất
                     echo "<li class='nav-item'>
-                    <a class='nav-link' href='#'>Xin chao: " . $_SESSION['username'] . " </a>
+                    <a class='nav-link' href='#'>Xin chao: ".$_SESSION['username']." </a>
                 </li>";
                 }
 
                 //login logout session
-                if (!isset($_SESSION['username'])) { //neu cái session chưa được active thì hiện button đăng nhập
+                if(!isset($_SESSION['username'])) { //neu cái session chưa được active thì hiện button đăng nhập
                     echo "<li class='nav-item'>
                     <a class='nav-link' href='./users_area/user_login.php'>Đăng nhập</a>
                 </li>";
@@ -244,6 +248,8 @@ session_start();
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
 
         </script>
+    <script src="./asset/script.js"></script>
+
 
 
 </body>

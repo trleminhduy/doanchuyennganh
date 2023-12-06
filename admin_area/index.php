@@ -2,7 +2,7 @@
 include('../includes/connect.php');
 include('../functions/common_function.php');
 @session_start();
-if (!isset($_SESSION['admin_username'])) {
+if(!isset($_SESSION['admin_username'])) {
     header("Location: admin_login.php"); // Redirect to login page
     exit();
 }
@@ -77,7 +77,7 @@ if (!isset($_SESSION['admin_username'])) {
         </nav>
         <!-- second child -->
         <div class="bg-light">
-            <h3 class="text-center p-2">Quản lý</h3>
+            <h3 class="text-center p-2">TRANG QUẢN LÝ</h3>
         </div>
         <!-- third child -->
         <div class="row">
@@ -86,18 +86,18 @@ if (!isset($_SESSION['admin_username'])) {
                     <a href="#"><img src="../asset/img/CMBG.png" alt="" class="admin_img"></a>
                     <p class="text-light text-center">DUY TRẦN</p>
                 </div>
-                <div class="button text-center">
-                    <button><a href="them_sanpham.php" class="nav-link text-light bg-info my-1">Thêm sản
+                <div class="button text-center  ml-5">
+                    <!-- <button><a href="them_sanpham.php" class="nav-link text-light bg-info my-1">Thêm sản
+                            phẩm</a></button> -->
+                    <button><a href="index.php?view_products" class="nav-link text-light bg-info my-1">Quản lý sản
                             phẩm</a></button>
-                    <button><a href="index.php?view_products" class="nav-link text-light bg-info my-1">Xem sản
-                            phẩm</a></button>
-                    <button><a href="index.php?insert_categories" class="nav-link text-light bg-info my-1">Thêm danh
+                    <!-- <button><a href="index.php?insert_categories" class="nav-link text-light bg-info my-1">Thêm danh
+                            mục</a></button> -->
+                    <button><a href="index.php?view_categories" class="nav-link text-light bg-info my-1">Quản lý danh
                             mục</a></button>
-                    <button><a href="index.php?view_categories" class="nav-link text-light bg-info my-1">Xem danh
-                            mục</a></button>
-                    <button><a href="index.php?insert_genre" class="nav-link text-light bg-info my-1">Thêm nhà xuất
-                            bản</a></button>
-                    <button><a href="index.php?view_brands" class="nav-link text-light bg-info my-1">Xem nhà xuất
+                    <!-- <button><a href="index.php?insert_genre" class="nav-link text-light bg-info my-1">Thêm nhà xuất
+                            bản</a></button> -->
+                    <button><a href="index.php?view_brands" class="nav-link text-light bg-info my-1">Quản lý nhà xuất
                             bản</a></button>
                     <button><a href="index.php?list_orders" class="nav-link text-light bg-info my-1">Tất cả đơn
                             hàng</a></button>
@@ -114,55 +114,55 @@ if (!isset($_SESSION['admin_username'])) {
         <!-- fourth child -->
         <div class="container my-3">
             <?php
-            if (isset($_GET['insert_categories'])) {
+            if(isset($_GET['insert_categories'])) {
                 include('them_danhmuc.php');
             }
-            if (isset($_GET['insert_genre'])) {
+            if(isset($_GET['insert_genre'])) {
                 include('them_theloai.php');
             }
-            if (isset($_GET['view_products'])) {
+            if(isset($_GET['view_products'])) {
                 include('view_products.php');
             }
-            if (isset($_GET['edit_products'])) {
+            if(isset($_GET['edit_products'])) {
                 include('edit_products.php');
             }
-            if (isset($_GET['delete_products'])) {
+            if(isset($_GET['delete_products'])) {
                 include('delete_products.php');
             }
-            if (isset($_GET['view_categories'])) {
+            if(isset($_GET['view_categories'])) {
                 include('view_categories.php');
             }
-            if (isset($_GET['view_brands'])) {
+            if(isset($_GET['view_brands'])) {
                 include('view_brands.php');
             }
-            if (isset($_GET['edit_category'])) {
+            if(isset($_GET['edit_category'])) {
                 include('edit_category.php');
             }
-            if (isset($_GET['edit_brands'])) {
+            if(isset($_GET['edit_brands'])) {
                 include('edit_brands.php');
             }
-            if (isset($_GET['delete_category'])) {
+            if(isset($_GET['delete_category'])) {
                 include('delete_category.php');
             }
-            if (isset($_GET['delete_brands'])) {
+            if(isset($_GET['delete_brands'])) {
                 include('delete_brands.php');
             }
-            if (isset($_GET['list_orders'])) {
+            if(isset($_GET['list_orders'])) {
                 include('list_orders.php');
             }
-            if (isset($_GET['delete_orders'])) {
+            if(isset($_GET['delete_orders'])) {
                 include('delete_orders.php');
             }
-            if (isset($_GET['list_payments'])) {
+            if(isset($_GET['list_payments'])) {
                 include('list_payments.php');
             }
-            if (isset($_GET['delete_payments'])) {
+            if(isset($_GET['delete_payments'])) {
                 include('delete_payments.php');
             }
-            if (isset($_GET['list_users'])) {
+            if(isset($_GET['list_users'])) {
                 include('list_users.php');
             }
-            if (isset($_GET['delete_users'])) {
+            if(isset($_GET['delete_users'])) {
                 include('delete_users.php');
             }
 

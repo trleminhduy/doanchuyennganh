@@ -21,7 +21,14 @@
 </head>
 
 <body>
-    <h3 class="text-center">DANH SÁCH NHÀ XUẤT BẢN/CUNG CẤP</h3>
+    <div class="row">
+        <h3 class="text-center text-success">DANH SÁCH NHÀ XUẤT BẢN</h3>
+        <div class="col-12 d-flex justify-content-center">
+            <button class="btn"><a href="index.php?insert_genre" class="btn nav-link text-light bg-info my-1">Thêm nhà
+                    xuất
+                    bản</a></button>
+        </div>
+    </div>
     <table class=" table table-bordered mt-5 text-center">
         <thead>
             <tr>
@@ -37,7 +44,7 @@
             $get_brands = "Select * from `theloai`";
             $result = mysqli_query($con, $get_brands);
             $number = 0;
-            while ($row = mysqli_fetch_assoc($result)) {
+            while($row = mysqli_fetch_assoc($result)) {
                 $theloai_id = $row['theloai_id'];
                 $theloai_title = $row['theloai_title'];
 

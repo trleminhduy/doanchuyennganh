@@ -21,7 +21,14 @@
 </head>
 
 <body>
-    <h3 class="text-center">DANH SÁCH DANH MỤC</h3>
+    <div class="row">
+        <h3 class="text-center text-success">DANH SÁCH DANH MỤC</h3>
+        <div class="col-12 d-flex justify-content-center">
+            <button class="btn"><a href="index.php?insert_categories" class="btn nav-link text-light bg-info my-1">Thêm
+                    danh
+                    mục</a></button>
+        </div>
+    </div>
     <table class=" table table-bordered mt-5 text-center">
         <thead>
             <tr>
@@ -37,7 +44,7 @@
             $get_category = "Select * from `danhmuc`";
             $result = mysqli_query($con, $get_category);
             $number = 0;
-            while ($row = mysqli_fetch_assoc($result)) {
+            while($row = mysqli_fetch_assoc($result)) {
                 $category_id = $row['danhmuc_id'];
                 $category_title = $row['danhmuc_title'];
 

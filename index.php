@@ -54,8 +54,28 @@ session_start();
         }
 
         .img-banner {
-            width: 1500px;
+            width: 100%;
             height: 543px;
+        }
+
+        #topbTN {
+
+            position: fixed;
+            bottom: 20px;
+            right: 30px;
+            z-index: 99;
+            font-size: 18px;
+            border: none;
+            outline: none;
+            background-color: red;
+            color: white;
+            cursor: pointer;
+            padding: 15px;
+            border-radius: 4px;
+        }
+
+        #topbTN:hover {
+            background-color: #555;
         }
 
       
@@ -112,7 +132,7 @@ session_start();
                         </li>
                     </ul>
                     <form class="d-flex" role="search" action="search_product.php" method="get">
-                        <input class="form-control me-2" type="search" placeholder="Viết liền không dấu"
+                        <input class="form-control me-2" type="search" placeholder="Nhập tên sản phẩm"
                             aria-label="Search" name="search_data">
 
                         <input type="submit" value="Search" class="btn btn-outline-light" name="search_data_product">
@@ -125,7 +145,7 @@ session_start();
         <?php
         cart();
         ?>
-
+        <button onclick="topFunction()" id="topbTN" title="Go to top">TOP</button>
 
         <!-- second child -->
         <nav class="navbar navbar-expand-lg bg-light">
@@ -251,6 +271,7 @@ session_start();
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
+    <script src="./asset/script.js"></script>
 
 
 </body>

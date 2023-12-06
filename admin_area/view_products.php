@@ -22,11 +22,29 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
+    <style>
+        .button-middle {
+            margin-left: auto;
+            margin-right: auto;
+
+        }
+    </style>
 
 </head>
 
 <body>
-    <h3 class="text-center text-success">TẤT CẢ SẢN PHẨM</h3>
+
+    <div class="row">
+        <h3 class="text-center text-success">DANH SÁCH SẢN PHẨM</h3>
+        <div class="col-12 d-flex justify-content-center">
+            <button class="btn"><a href="them_sanpham.php" class=" btn nav-link text-light bg-info my-1">Thêm sản
+                    phẩm</a></button>
+
+
+        </div>
+    </div>
+
+
     <table class=" table table-bordered mt-5 text-center ">
         <thead>
             <tr>
@@ -46,7 +64,7 @@
             $get_products = "Select * from `products`";
             $result = mysqli_query($con, $get_products);
             $number = 0;
-            while ($row = mysqli_fetch_assoc($result)) {
+            while($row = mysqli_fetch_assoc($result)) {
                 $product_id = $row['product_id'];
                 $product_title = $row['product_title'];
                 $product_image1 = $row['product_image1'];
