@@ -101,7 +101,7 @@
                 <button type="submit" name="send" id="contact-submit">Gửi</button>
             </fieldset>
             <fieldset>
-                <a href="\ECOMMERCE\admin_area\index.php">Quay về trang chủ</a>
+                <a href="/ECOMMERCE/admin_area/index.php?list_users">Quay về trang chủ</a>
             </fieldset>
         </form>
     </div>

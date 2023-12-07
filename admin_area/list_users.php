@@ -26,9 +26,9 @@
                 echo "<tr>
                 <th>STT</th>
                 <th>Tên đăng nhập</th>
-                <th>User email</th>
-                <th>User địa chỉ</th>
-                <th>User điện thoại</th>
+                <th>Email khách hàng</th>
+                <th>Địa chỉ khách hàng</th>
+                <th>Số điện thoại khách hàng</th>
                 <th>Xoá</th>
             </tr>
         </thead>
