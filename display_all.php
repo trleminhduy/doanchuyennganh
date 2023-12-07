@@ -69,6 +69,13 @@ session_start();
         #topbTN:hover {
             background-color: #555;
         }
+
+        .card {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            height: 100%;
+        }
     </style>
 
 

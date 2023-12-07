@@ -2,7 +2,7 @@
 include('../includes/connect.php');
 include('../functions/common_function.php');
 @session_start();
-if(!isset($_SESSION['admin_username'])) {
+if (!isset($_SESSION['admin_username'])) {
     header("Location: admin_login.php"); // Redirect to login page
     exit();
 }
@@ -105,7 +105,7 @@ if(!isset($_SESSION['admin_username'])) {
                             toán</a></button>
                     <button><a href="index.php?list_users" class="nav-link text-light bg-info my-1">User
                             lists</a></button>
-                    <button><a href="index.php?promotion_mails" class="nav-link text-light bg-info my-1">Gửi mail khuyến
+                    <button><a href="./lib/mail.php" class="nav-link text-light bg-info my-1">Gửi mail khuyến
                             mãi</a></button>
                     <button><a href="admin_logout.php" class="nav-link text-light bg-info my-1">Đăng xuất</a></button>
                 </div>
@@ -114,58 +114,62 @@ if(!isset($_SESSION['admin_username'])) {
         <!-- fourth child -->
         <div class="container my-3">
             <?php
-            if(isset($_GET['insert_categories'])) {
+            if (isset($_GET['insert_categories'])) {
                 include('them_danhmuc.php');
             }
-            if(isset($_GET['insert_genre'])) {
+            if (isset($_GET['insert_genre'])) {
                 include('them_theloai.php');
             }
-            if(isset($_GET['view_products'])) {
+            if (isset($_GET['view_products'])) {
                 include('view_products.php');
             }
-            if(isset($_GET['edit_products'])) {
+            if (isset($_GET['edit_products'])) {
                 include('edit_products.php');
             }
-            if(isset($_GET['delete_products'])) {
+            if (isset($_GET['delete_products'])) {
                 include('delete_products.php');
             }
-            if(isset($_GET['view_categories'])) {
+            if (isset($_GET['view_categories'])) {
                 include('view_categories.php');
             }
-            if(isset($_GET['view_brands'])) {
+            if (isset($_GET['view_brands'])) {
                 include('view_brands.php');
             }
-            if(isset($_GET['edit_category'])) {
+            if (isset($_GET['edit_category'])) {
                 include('edit_category.php');
             }
-            if(isset($_GET['edit_brands'])) {
+            if (isset($_GET['edit_brands'])) {
                 include('edit_brands.php');
             }
-            if(isset($_GET['delete_category'])) {
+            if (isset($_GET['delete_category'])) {
                 include('delete_category.php');
             }
-            if(isset($_GET['delete_brands'])) {
+            if (isset($_GET['delete_brands'])) {
                 include('delete_brands.php');
             }
-            if(isset($_GET['list_orders'])) {
+            if (isset($_GET['list_orders'])) {
                 include('list_orders.php');
             }
-            if(isset($_GET['delete_orders'])) {
+            if (isset($_GET['delete_orders'])) {
                 include('delete_orders.php');
             }
-            if(isset($_GET['list_payments'])) {
+            if (isset($_GET['list_payments'])) {
                 include('list_payments.php');
             }
-            if(isset($_GET['delete_payments'])) {
+            if (isset($_GET['delete_payments'])) {
                 include('delete_payments.php');
             }
-            if(isset($_GET['list_users'])) {
+            if (isset($_GET['list_users'])) {
                 include('list_users.php');
             }
-            if(isset($_GET['delete_users'])) {
+            if (isset($_GET['delete_users'])) {
                 include('delete_users.php');
             }
-
+            // if (isset($_GET['promotion_mails'])) {
+            //     require('./lib/mail.php');
+            
+            // }
+            
 
 
 

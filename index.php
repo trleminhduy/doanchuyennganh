@@ -70,7 +70,7 @@ session_start();
             background-color: red;
             color: white;
             cursor: pointer;
-            padding: 15px;
+            padding: 5px;
             border-radius: 4px;
         }
 
@@ -78,7 +78,12 @@ session_start();
             background-color: #555;
         }
 
-      
+        .card {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            height: 100%;
+        }
     </style>
 
 </head>
