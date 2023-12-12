@@ -65,7 +65,7 @@ if (isset($_POST['confirm_payment'])) {
                 </select>
             </div>
             <div class="form-outline my-4 text-center w-50 m-auto">
-                <input type="submit" class="bg-danger py-2 px-3 border-0" value="XÁC NHẬN THANH TOÁN"
+                <input type="submit" class=" btn bg-danger py-2 px-3 border-0" value="XÁC NHẬN THANH TOÁN"
                     name="confirm_payment">
             </div>
         </form>

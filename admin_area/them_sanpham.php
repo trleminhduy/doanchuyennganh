@@ -1,5 +1,6 @@
 <?php
 include('../includes/connect.php');
+
 if (isset($_POST['insert_product'])) {
     $product_title = $_POST['product_title'];
     $description = $_POST['description'];
@@ -7,41 +8,47 @@ if (isset($_POST['insert_product'])) {
     $product_category = $_POST['product_category'];
     $product_brands = $_POST['product_brands'];
     $product_price = $_POST['product_price'];
-    $product_status = 'true';
+    $product_status = 'true'; 
 
-    //access image
+    // Validate product_price to ensure it is numeric
+    if (!is_numeric($product_price)) {
+        echo "<script>alert('Giá sản phẩm phải là số!')</script>";
+        echo "<script>window.open('them_sanpham.php','_self')</script>";
+        exit(); // Stop further processing if validation fails
+    }
+
+    // Access image
     $product_image1 = $_FILES['product_image1']['name'];
     $product_image2 = $_FILES['product_image2']['name'];
     $product_image3 = $_FILES['product_image3']['name'];
 
-    //access image tmp name
+    // Access image tmp name
     $temp_image1 = $_FILES['product_image1']['tmp_name'];
     $temp_image2 = $_FILES['product_image2']['tmp_name'];
     $temp_image3 = $_FILES['product_image3']['tmp_name'];
 
-    //check condition
+    // Check condition
     if ($product_title == '' or $description == '' or $product_keyword == '' or $product_category == '' or $product_brands == '' or $product_price == '') {
         echo "<script>alert('Hãy nhập đầy đủ!')</script>";
         echo "<script>window.open('them_sanpham.php','_self')</script>";
-
     } else {
         move_uploaded_file($temp_image1, "./product_images/$product_image1");
         move_uploaded_file($temp_image2, "./product_images/$product_image2");
         move_uploaded_file($temp_image3, "./product_images/$product_image3");
-        //insert query
+
+        // Insert query
         $insert_products = "insert into `products` (product_title,product_description,product_keyword,danhmuc_id,theloai_id,product_image1,product_image2,product_image3,product_price,date,status) values('$product_title', '$description','$product_keyword','$product_category','$product_brands','$product_image1','$product_image2','$product_image3','$product_price',NOW(),$product_status)";
         $result_query = mysqli_query($con, $insert_products);
+
         if ($result_query) {
             echo "THÊM THÀNH CÔNG";
-
-
         } else {
             echo "<script>alert('Lỗi thêm')</script>";
         }
-
-
     }
 }
+
+
 
 ?>
 <!DOCTYPE html>

@@ -64,7 +64,7 @@
             $get_products = "Select * from `products`";
             $result = mysqli_query($con, $get_products);
             $number = 0;
-            while($row = mysqli_fetch_assoc($result)) {
+            while ($row = mysqli_fetch_assoc($result)) {
                 $product_id = $row['product_id'];
                 $product_title = $row['product_title'];
                 $product_image1 = $row['product_image1'];
@@ -97,7 +97,8 @@
                     </td>
                     <td><a href='index.php?edit_products=<?php echo $product_id ?>'><i
                                 class='fa-solid fa-pen-to-square'></i></a></td>
-                    <td><a href='index.php?delete_products=<?php echo $product_id ?>'><i class='fa-solid fa-trash'></i></a>
+                    <td><a href='index.php?delete_products=<?php echo $product_id ?>'><i
+                                class='fa-solid fa-trash text-danger'></i></a>
                     </td>
                 </tr>
                 <?php

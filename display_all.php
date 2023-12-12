@@ -107,9 +107,17 @@ session_start();
                         <li class="nav-item">
                             <a class="nav-link" href="display_all.php">Sản phẩm</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="./users_area/user_registration.php">Đăng ký</a>
-                        </li>
+                        <?php
+                        if (isset($_SESSION['username'])) {
+                            echo "  <li class='nav-item'>
+                            <a class='nav-link' href='./users_area/profile.php'>Trang cá nhân</a>
+                        </li>";
+                        } else {
+                            echo "  <li class='nav-item'>
+                            <a class='nav-link' href='./users_area/user_registration.php'>Đăng ký</a>
+                        </li>";
+                        }
+                        ?>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Liên hệ</a>
                         </li>
@@ -141,18 +149,18 @@ session_start();
             <ul class="navbar-nav me-auto">
 
                 <?php
-                if(!isset($_SESSION['username'])) { //neu cái session chưa được active thì hiện button đăng nhập
+                if (!isset($_SESSION['username'])) { //neu cái session chưa được active thì hiện button đăng nhập
                     echo "<li class='nav-item'>
                     <a class='nav-link' href='#'>Xin chào: Khách</a>
                 </li>";
                 } else {  //nếu session đã active rồi thì show button đăng xuất
                     echo "<li class='nav-item'>
-                    <a class='nav-link' href='#'>Xin chao: ".$_SESSION['username']." </a>
+                    <a class='nav-link' href='#'>Xin chao: " . $_SESSION['username'] . " </a>
                 </li>";
                 }
 
                 //login logout session
-                if(!isset($_SESSION['username'])) { //neu cái session chưa được active thì hiện button đăng nhập
+                if (!isset($_SESSION['username'])) { //neu cái session chưa được active thì hiện button đăng nhập
                     echo "<li class='nav-item'>
                     <a class='nav-link' href='./users_area/user_login.php'>Đăng nhập</a>
                 </li>";

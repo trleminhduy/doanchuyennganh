@@ -22,17 +22,18 @@
 
     ?>
 
-    <h3 class="text-success text-center">All my orders</h3>
+    <h3 class="text-success text-center">TẤT CẢ ĐƠN HÀNG</h3>
     <table class="table table-bordered mt-5">
         <thead class="bg-info">
             <tr>
-                <th>STT</th>
+                <th> STT</th>
                 <th>Tổng tiền</th>
                 <th>Tổng số lượng đơn hàng</th>
                 <th>Số hoá đơn</th>
                 <th>Ngày đặt</th>
-                <th>Chưa thanh toán/Đã thanh toán</th>
-                <th>Trạng thái</th>
+                <th>Trạng thái thanh toán</th>
+                <th>Trạng thái đơn hàng</th>
+
             </tr>
         </thead>
         <tbody class="bg-light text-light">
@@ -54,7 +55,7 @@
                 $order_date = $row_orders['order_date'];
 
                 echo "<tr>
-                <td>$number</td>
+                <td> <a href='user_buy_item.php'>$number</a> </td>
                 <td>$amount_due</td>
                 <td>$total_products</td>
                 <td>$invoice_number</td>
@@ -62,7 +63,7 @@
                 <td>$order_status_display</td>";
 
                 if ($order_status == 'Complete') {
-                    echo "<td>Đã thanh toán</td>";
+                    echo "<td>Đã xác nhận đơn hàng</td>";
                 } else {
                     echo "<td><a href='confirm_payment.php?order_id=$order_id'>Đang chờ xác nhận</a></td>";
                 }

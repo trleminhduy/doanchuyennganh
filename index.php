@@ -85,10 +85,19 @@ session_start();
             height: 100%;
         }
     </style>
+    <!-- Bootstrap and jQuery scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-eOJMYsd53ii+dfh6GLmZJIoU8HfAX5t9y7duGqkiWSq5I3n+oRtq4ByfG5trF5J"
+        crossorigin="anonymous"></script>
+
 
 </head>
 
 <body>
+
 
     <!-- navbar -->
     <div class="container-fluid p-0">
@@ -111,7 +120,7 @@ session_start();
                             <a class="nav-link" href="display_all.php">Sản phẩm</a>
                         </li>
                         <?php
-                        if(isset($_SESSION['username'])) {
+                        if (isset($_SESSION['username'])) {
                             echo "  <li class='nav-item'>
                             <a class='nav-link' href='./users_area/profile.php'>Trang cá nhân</a>
                         </li>";
@@ -157,18 +166,18 @@ session_start();
             <ul class="navbar-nav me-auto">
                 <!-- show username session -->
                 <?php
-                if(!isset($_SESSION['username'])) { //neu cái session chưa được active thì hiện button đăng nhập
+                if (!isset($_SESSION['username'])) { //neu cái session chưa được active thì hiện button đăng nhập
                     echo "<li class='nav-item'>
                     <a class='nav-link' href='#'>Xin chào: Khách</a>
                 </li>";
                 } else {  //nếu session đã active rồi thì show button đăng xuất
                     echo "<li class='nav-item'>
-                    <a class='nav-link' href='#'>Xin chao: ".$_SESSION['username']." </a>
+                    <a class='nav-link' href='#'>Xin chao: " . $_SESSION['username'] . " </a>
                 </li>";
                 }
 
                 //login logout session
-                if(!isset($_SESSION['username'])) { //neu cái session chưa được active thì hiện button đăng nhập
+                if (!isset($_SESSION['username'])) { //neu cái session chưa được active thì hiện button đăng nhập
                     echo "<li class='nav-item'>
                     <a class='nav-link' href='./users_area/user_login.php'>Đăng nhập</a>
                 </li>";
@@ -258,6 +267,7 @@ session_start();
             </div>
 
         </div>
+        
 
 
 
@@ -272,11 +282,16 @@ session_start();
     </div>
 
 
+
     <!-- bootstrap js link -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
     <script src="./asset/script.js"></script>
+
+
+
+
 
 
 </body>

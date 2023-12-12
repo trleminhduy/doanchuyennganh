@@ -4,42 +4,10 @@ include('../functions/common_function.php');
 
 
 ?>
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ĐĂNG KÝ TÀI KHOẢN - PAGE</title>
-    <link rel="stylesheet" href="/asset/style.css">
-    <link rel="stylesheet" href="\ECOMMERCE\asset\dangki.css">
-
-    <style>
-        .title {
-            text-align: center;
-            font-size: 30px;
-            font-weight: bold;
-            color: #3498db
-        }
-    </style>
 
 
 
-    <!-- bootstrap css link -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <!-- Bootstrap and jQuery scripts -->
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-eOJMYsd53ii+dfh6GLmZJIoU8HfAX5t9y7duGqkiWSq5I3n+oRtq4ByfG5trF5J"
-        crossorigin="anonymous"></script>
 
-</head>
-
-
-<body>
     <div class="container-fluid my-3">
         <!-- <h2 class="text-center">ĐĂNG KÝ TÀI KHOẢN</h2> -->
         <p class="title">ĐĂNG KÝ TÀI KHOẢN</p>
@@ -109,9 +77,9 @@ include('../functions/common_function.php');
 
 
 
-</body>
 
-</html>
+
+
 
 <!-- php code -->
 

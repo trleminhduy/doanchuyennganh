@@ -44,7 +44,7 @@
             $get_brands = "Select * from `theloai`";
             $result = mysqli_query($con, $get_brands);
             $number = 0;
-            while($row = mysqli_fetch_assoc($result)) {
+            while ($row = mysqli_fetch_assoc($result)) {
                 $theloai_id = $row['theloai_id'];
                 $theloai_title = $row['theloai_title'];
 
@@ -63,12 +63,13 @@
 
                     <td><a href='index.php?edit_brands=<?php echo $theloai_id ?>'><i
                                 class='fa-solid fa-pen-to-square'></i></a></td>
-                    <td><a href='index.php?delete_brands=<?php echo $theloai_id ?>'><i class='fa-solid fa-trash'></i></a>
+                    <td><a href='index.php?delete_brands=<?php echo $theloai_id ?>'><i
+                                class='fa-solid fa-trash text-danger'></i></a>
                     </td>
                 </tr>
                 <?php
             }
-            ?>
+            ?>  
 
 
         </tbody>

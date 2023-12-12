@@ -113,15 +113,15 @@ session_start();
 
         <!-- Third child -->
 
-        <div class="bg-light">
-            <h3 class="text-center">
-                CỬA HÀNG NOSTALGIA
-            </h3 class="text-center">
-            <p class="text-center"> ĐẶT SỰ TRẢI NGHIỆM CỦA BẠN LÊN HÀNG ĐẦU</p>
+        <div class="">
+            <h3 class="text-center mt-5 text-success">
+
+
+
         </div>
 
         <!-- fourth child table -->
-        <div class="container mb-3">
+        <div class="container mb-3 mt-3">
             <div class="row">
                 <form action="" method="post">
                     <table class="table table-bordered text-center">
@@ -184,7 +184,7 @@ session_start();
                                             <td>
                                                 <!-- <button class="bg-info px-3 py-1 border-0 mx-2 "> Update</button> -->
                                                 <input type="submit" value="Cập nhật giỏ hàng"
-                                                    class="btn bg-info px-3 py-1 border-0 mx-2" name="update_cart">
+                                                    class="btn bg-info px-3 py-1 border-0 mx-2 text-light   " name="update_cart">
 
                                             </td>
                                             <td>
@@ -198,13 +198,13 @@ session_start();
 
                                 }
                             } else {
-                                echo "<h2 class='text-center text-danger'>Cart empty</h2>";
+                                echo "<h2 class='text-center text-danger'>Giỏ hàng rỗng </h2>";
                             }
                             ?>
                         </tbody>
                     </table>
                     <!-- subtotal -->
-                    <div class="d-flex mb-5">
+                    <div class="d-flex mb-5 mt-5">
                         <?php
                         global $con;
                         $get_ip_add = getIPAddress();
@@ -220,7 +220,7 @@ session_start();
                                                     name='continue_shopping'>
                         <button class='btn bg-danger  px-3 py-2 border-0 text-light '><a href='./users_area/checkout.php' class=' text-light text-decoration-none'>Thanh toán giỏ hàng</button>";
                         } else {
-                            echo " <input type='submit' value='Tiếp tục mua sắm' class='bg-info px-3 py-1 border-0 mx-2'
+                            echo " <input type='submit' value='Tiếp tục mua sắm' class='btn bg-info px-3 py-1 border-0 mx-2'
                                                     name='continue_shopping'>";
                         }
                         if (isset($_POST['continue_shopping'])) {
