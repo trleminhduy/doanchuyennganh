@@ -67,8 +67,8 @@ include('../functions/common_function.php');
                     <!-- password field -->
                     <div class="form-outline mb-4 ">
                         <label for="user_password" class="form-label">Password</label>
-                        <input type="password" id="user_password" class="form-control" placeholder="Nhập mật khẩu"
-                            autocomplete="off" required name="user_password">
+                        <input type="password" id="user_password" class="form-control"
+                            placeholder="Mật khẩu phải trên 8 ký tự" autocomplete="off" required name="user_password">
                     </div>
                     <!-- confirm password field -->
                     <div class="form-outline mb-4 ">
@@ -118,12 +118,36 @@ include('../functions/common_function.php');
 <?php
 if (isset($_POST['user_register'])) {
     $user_username = $_POST['user_username'];
+    if (!preg_match('/^[a-zA-Z0-9_]+$/', $user_username)) {
+        echo "<script>alert('Tên người dùng không hợp lệ') </script>";
+        echo "<script>window.location.href='user_registration.php'</script>";
+
+        exit;
+    }
+
     $user_email = $_POST['user_email'];
+    if (!filter_var($user_email, FILTER_VALIDATE_EMAIL)) {
+        echo "<script>alert('Định dạng email không hợp lệ');</script>";
+        echo "<script>window.location.href='user_registration.php'</script>";
+        exit;
+    }
+
     $user_password = $_POST['user_password'];
-    $hash_password = password_hash($user_password, PASSWORD_DEFAULT);
     $conf_user_password = $_POST['conf_user_password'];
+    if (strlen($user_password) < 8) {
+        echo "<script>alert('Mật khẩu quá ngắn. Yêu cầu ít nhất 8 ký tự.');</script>";
+        echo "<script>window.location.href='user_registration.php'</script>";
+        exit;
+    }
+    $hash_password = password_hash($user_password, PASSWORD_DEFAULT);
+
     $user_address = $_POST['user_address'];
     $user_contact = $_POST['user_contact'];
+    if (!preg_match('/^\d{10}$/', $user_contact)) {
+        echo "<script>alert('Số điện thoại phải đủ 10 chữ số');</script>";
+        echo "<script>window.location.href='user_registration.php'</script>";
+        exit;
+    }
     $user_image = $_FILES['user_image']['name'];
     $user_image_tmp = $_FILES['user_image']['tmp_name']; //alot of extension on img like png jpeg
     $user_ip = getIPAddress();
@@ -135,7 +159,7 @@ if (isset($_POST['user_register'])) {
     $rows_count = mysqli_num_rows($result); //dem so dong
     if ($rows_count > 0) {
         echo "<script> alert('Tên tài khoản hoặc email đã tồn tại!')</script>";
-        echo "<script>window.open('register.php','_self')</script>";
+        echo "<script>window.open('user_registration.php','_self')</script>";
 
     } elseif ($user_password != $conf_user_password) {
         echo "<script> alert('MẬT KHẨU KHÔNG TRÙNG NHAU!')</script>";

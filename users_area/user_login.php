@@ -73,6 +73,13 @@ include('../functions/common_function.php');
 <?php
 if (isset($_POST['user_login'])) {
     $user_username = $_POST['user_username'];
+    if (!preg_match('/^[a-zA-Z0-9_]+$/', $user_username)) {
+        echo "<script>alert('Tên người dùng không hợp lệ') </script>";
+        echo "<script>window.location.href='user_login.php'</script>";
+        exit;
+
+    }
+
     $user_password = $_POST['user_password'];
 
 
