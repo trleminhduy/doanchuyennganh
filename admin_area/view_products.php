@@ -53,7 +53,7 @@
                 <th>Hình ảnh sản phẩm</th>
                 <th>Giá tiền</th>
                 <th>Tổng được bán ra</th>
-                <th>Trạng thái</th>
+                <th>Kho</th>
                 <th>Chỉnh sửa</th>
                 <th>Xoá</th>
 
@@ -70,6 +70,7 @@
                 $product_image1 = $row['product_image1'];
                 $product_price = $row['product_price'];
                 $status = $row['status'];
+                $product_stock = $row['product_stock'];
                 $number++;
                 ?>
                 <tr>
@@ -93,7 +94,7 @@
                         ?>
                     </td>
                     <td>
-                        <?php echo $status; ?>
+                        <?php echo $product_stock; ?>
                     </td>
                     <td><a href='index.php?edit_products=<?php echo $product_id ?>'><i
                                 class='fa-solid fa-pen-to-square'></i></a></td>

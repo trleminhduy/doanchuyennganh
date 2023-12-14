@@ -8,7 +8,9 @@ if (isset($_POST['insert_product'])) {
     $product_category = $_POST['product_category'];
     $product_brands = $_POST['product_brands'];
     $product_price = $_POST['product_price'];
-    $product_status = 'true'; 
+    $product_status = 'true';
+    $product_stock = $_POST['product_stock'];
+
 
     // Validate product_price to ensure it is numeric
     if (!is_numeric($product_price)) {
@@ -37,7 +39,7 @@ if (isset($_POST['insert_product'])) {
         move_uploaded_file($temp_image3, "./product_images/$product_image3");
 
         // Insert query
-        $insert_products = "insert into `products` (product_title,product_description,product_keyword,danhmuc_id,theloai_id,product_image1,product_image2,product_image3,product_price,date,status) values('$product_title', '$description','$product_keyword','$product_category','$product_brands','$product_image1','$product_image2','$product_image3','$product_price',NOW(),$product_status)";
+        $insert_products = "insert into `products` (product_title,product_description,product_keyword,danhmuc_id,theloai_id,product_image1,product_image2,product_image3,product_price,date,status,product_stock) values('$product_title', '$description','$product_keyword','$product_category','$product_brands','$product_image1','$product_image2','$product_image3','$product_price',NOW(),$product_status,$product_stock)";
         $result_query = mysqli_query($con, $insert_products);
 
         if ($result_query) {
@@ -177,6 +179,13 @@ if (isset($_POST['insert_product'])) {
                 <!-- dòng for và id phải giống nhau, chỉ có name là khác -->
                 <input type="text" name="product_price" id="product_price" class="form-control"
                     placeholder="Thêm giá tiền sản phẩm" autocomplete="off" required="required">
+            </div>
+            <!-- price -->
+            <div class="form-outline mb-4 w-50 m-auto">
+                <label for="product_stock class=" form-label">Sẵn có:</label>
+                <!-- dòng for và id phải giống nhau, chỉ có name là khác -->
+                <input type="text" name="product_stock" id="product_stock" class="form-control"
+                    placeholder="Số lượng trong kho" autocomplete="off" required="required">
             </div>
 
             <!-- button -->

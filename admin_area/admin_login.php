@@ -15,7 +15,7 @@ if (isset($_POST['admin_login'])) {
     if ($row_count > 0 && password_verify($admin_password, $row_data['admin_password'])) {
         $_SESSION['admin_username'] = $admin_username;
 
-        echo "<script>alert('Đăng nhập thành công') </script>";
+        //echo "<script>alert('Đăng nhập thành công') </script>";
         echo "<script> window.open('index.php','_self')</script>";
     } else {
         echo "<script>alert('Tài khoản hoặc mật khẩu không chính xác') </script>";
@@ -73,8 +73,8 @@ if (isset($_POST['admin_login'])) {
 
                     <input type="submit" class=" btn bg-info border-0 py-2 px-3 mt-3" value="ĐĂNG NHẬP"
                         name="admin_login">
-                    <p class="small fw-bold mt-2">Chưa có tài khoản? <a href="admin_registration.php"
-                            class="link-danger">Đăng ký</a></p>
+                    <!-- <p class="small fw-bold mt-2">Chưa có tài khoản? <a href="admin_registration.php"
+                            class="link-danger">Đăng ký</a></p> -->
                 </form>
             </div>
         </div>

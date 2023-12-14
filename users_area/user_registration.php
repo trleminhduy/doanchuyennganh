@@ -49,9 +49,14 @@ include('../functions/common_function.php');
                 <form action="" method="post" enctype="multipart/form-data">
                     <!-- username field -->
                     <div class="form-outline mb-4">
-                        <label for="user_username" class="form-label">Username</label>
+                        <label for="user_username" class="form-label">Tên tài khoản</label>
                         <input type="text" id="user_username" class="form-control" placeholder="Nhập Username"
                             autocomplete="off" required name="user_username">
+                    </div>
+                    <div class="form-outline mb-4">
+                        <label for="user_username" class="form-label">Họ và tên</label>
+                        <input type="text" id="user_fullname" class="form-control" placeholder="Nhập họ và tên"
+                            autocomplete="off" required name="user_fullname">
                     </div>
                     <!-- email field -->
                     <div class="form-outline mb-4 ">
@@ -66,7 +71,7 @@ include('../functions/common_function.php');
                     </div>
                     <!-- password field -->
                     <div class="form-outline mb-4 ">
-                        <label for="user_password" class="form-label">Password</label>
+                        <label for="user_password" class="form-label">Mật khẩu</label>
                         <input type="password" id="user_password" class="form-control"
                             placeholder="Mật khẩu phải trên 8 ký tự" autocomplete="off" required name="user_password">
                     </div>
@@ -125,6 +130,8 @@ if (isset($_POST['user_register'])) {
         exit;
     }
 
+    $user_fullname = $_POST['user_fullname'];
+
     $user_email = $_POST['user_email'];
     if (!filter_var($user_email, FILTER_VALIDATE_EMAIL)) {
         echo "<script>alert('Định dạng email không hợp lệ');</script>";
@@ -166,7 +173,7 @@ if (isset($_POST['user_register'])) {
 
     } else {
         //insert query
-        $insert_query = "insert into `user_table`(username,user_email,user_password,user_image,user_ip,user_address,user_mobile) values ('$user_username','$user_email', '$hash_password','$user_image','$user_ip','$user_address','$user_contact') ";
+        $insert_query = "insert into `user_table`(username,user_fullname, user_email,user_password,user_image,user_ip,user_address,user_mobile) values ('$user_username','$user_fullname','$user_email', '$hash_password','$user_image','$user_ip','$user_address','$user_contact') ";
         $sql_execute = mysqli_query($con, $insert_query);
         move_uploaded_file($user_image_tmp, "./user_images/$user_image");
         if ($sql_execute) {

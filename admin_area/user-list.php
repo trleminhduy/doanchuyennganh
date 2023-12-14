@@ -1,3 +1,8 @@
+<?php
+include('../includes/connect.php')
+
+
+    ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,16 +10,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Danh sách user</title>
+    <!-- bootstrap css link -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- font-awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
     <h3 class="text-center">
-        TẤT CẢ USERS
-
+        TRANG XUẤT FILE EXCEL
+        <div class="mt-5">
+            <a href="export.php" class="text-danger"> <i class="fa-solid fa-download"></i> Tải</a>
+        </div>
     </h3>
-    <div class="col-12 d-flex justify-content-center">
-        <button class="btn"><a href="user-list.php" class="btn nav-link text-light bg-info my-1">EXPORT</a></button>
-    </div>
 
     <table class="table table-bordered mt-5">
         <thead class="bg-info">
@@ -30,11 +44,12 @@
                 echo "<tr>
                 <th>STT</th>
                 <th>Tên đăng nhập</th>
-                <th>Họ và tên khách hàng</th>
+                <th>Họ và tên</th>
+
                 <th>Email khách hàng</th>
                 <th>Địa chỉ khách hàng</th>
                 <th>Số điện thoại khách hàng</th>
-                <th>Xoá</th>
+                
             </tr>
         </thead>
         <tbody>";
@@ -56,7 +71,7 @@
                 <td>$user_address</td>
                 <td>$user_mobile </td>
                 
-               <td><a href='index.php?delete_users=" . $user_id . "'><i class='fa-solid fa-trash text-danger'></i></a></td>
+               
             </tr>";
 
                 }
