@@ -9,7 +9,7 @@
 
 <body>
     <h3 class="text-center">
-        TẤT CẢ USERS
+        KHÁCH HÀNG HIỆN CÓ
 
     </h3>
     <div class="col-12 d-flex justify-content-center">

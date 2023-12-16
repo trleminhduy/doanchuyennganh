@@ -55,7 +55,7 @@ if (isset($_POST['admin_login'])) {
         </h2>
         <div class="row d-flex justify-content-center ">
             <div class="col-lg-4 col-xl-3 ">
-                <img src="./product_images/00-Linux.png" alt="" class="img-fluid">
+                <img src="../asset/img/CMBG.png" alt="" class="img-fluid">
             </div>
         </div>
         <div class="row d-flex justify-content-center align-items-center">
@@ -63,12 +63,12 @@ if (isset($_POST['admin_login'])) {
                 <form action="" method="post">
                     <div class="form-outline mt-4   ">
                         <!-- <label for="username" class="form-label">Username</label> -->
-                        <input type="text" id="username" name="admin_username" placeholder="Nhap username">
+                        <input type="text" id="username" name="admin_username" placeholder="Nhập username">
                     </div>
 
                     <div class="form-outline mt-4 ">
                         <!-- <label for="password" class="form-label">Password</label> -->
-                        <input type="password" id="password" name="admin_password" placeholder="Nhap password">
+                        <input type="password" id="password" name="admin_password" placeholder="Nhập password">
                     </div>
 
                     <input type="submit" class=" btn bg-info border-0 py-2 px-3 mt-3" value="ĐĂNG NHẬP"

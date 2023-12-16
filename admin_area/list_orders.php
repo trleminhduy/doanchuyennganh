@@ -31,7 +31,7 @@
                 <th>Tổng số lượng</th>
                 <th>Ngày đặt</th>
                 <th>Trạng thái</th>
-                <th>Xoá</th>
+               
             </tr>
         </thead>
         <tbody>";
@@ -55,7 +55,7 @@
                 <td>$total_products</td>
                 <td>$order_date </td>
                 <td>$order_status</td>
-               <td><a href='index.php?delete_orders=" . $order_id . "'><i class='fa-solid fa-trash text-danger'></i></a></td>
+              <!-- <td><a href='index.php?delete_orders=" . $order_id . "'><i class='fa-solid fa-trash text-danger'></i></a></td> -->
             </tr>";
 
                 }
@@ -69,5 +69,6 @@
     </table>
 
 </body>
+
 
 </html>

@@ -27,7 +27,9 @@ include('../includes/connect.php')
         TRANG XUẤT FILE EXCEL
         <div class="mt-5">
             <a href="export.php" class="text-danger"> <i class="fa-solid fa-download"></i> Tải</a>
+
         </div>
+
     </h3>
 
     <table class="table table-bordered mt-5">
@@ -83,7 +85,9 @@ include('../includes/connect.php')
 
             </tbody>
     </table>
-
+    <div>
+        <a href="index.php" class="">Quay về trang chủ</a>
+    </div>
 </body>
 
 </html>

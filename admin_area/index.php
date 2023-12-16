@@ -63,7 +63,7 @@ if (!isset($_SESSION['admin_username'])) {
     <!-- navbar -->
     <div class="container-fluid p-0">
         <!-- first child -->
-        <nav class="navbar navbar-expand-lg navbar-light bg-info">
+        <!-- <nav class="navbar navbar-expand-lg navbar-light bg-info">
             <div class="container-fluid">
                 <img src="../asset/img/CMBG.png" alt="" class="nav_logo">
                 <nav class="navbar navbar-expand-lg ">
@@ -74,9 +74,9 @@ if (!isset($_SESSION['admin_username'])) {
                     </ul>
                 </nav>
             </div>
-        </nav>
+        </nav> -->
         <!-- second child -->
-        <div class="bg-light">
+        <div class="bg-primary">
             <h3 class="text-center p-2">TRANG QUẢN LÝ</h3>
         </div>
         <!-- third child -->
@@ -103,8 +103,8 @@ if (!isset($_SESSION['admin_username'])) {
                             hàng</a></button>
                     <button><a href="index.php?list_payments" class="nav-link text-light bg-info my-1">Phương thức thanh
                             toán</a></button>
-                    <button><a href="index.php?list_users" class="nav-link text-light bg-info my-1">User
-                            lists</a></button>
+                    <button><a href="index.php?list_users" class="nav-link text-light bg-info my-1">Danh sách khách hàng
+                        </a></button>
                     <button><a href="./lib/mail.php" class="nav-link text-light bg-info my-1">Gửi mail khuyến
                             mãi</a></button>
                     <button><a href="admin_logout.php" class="nav-link text-light bg-info my-1">Đăng xuất</a></button>
