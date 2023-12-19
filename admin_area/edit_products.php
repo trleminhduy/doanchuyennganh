@@ -139,6 +139,25 @@ if (isset($_POST['edit_product'])) {
     $product_brands = $_POST['product_brands'];
     $product_price = $_POST['product_price'];
 
+    if (!preg_match('/^[A-Za-z\s]+$/', $product_title)) {
+        echo "<script>alert('Tên sản phẩm chỉ được chứa chữ cái và khoảng trắng');</script>";
+        echo "<script>window.location.href='index.php?view_products'</script>";
+        exit(); // Stop further processing if validation fails
+    }
+
+    // Validate required fields
+    if (empty($product_title) || empty($product_description) || empty($product_category) || empty($product_brands) || empty($product_price)) {
+        echo "<script>alert('Vui lòng điền đầy đủ thông tin.');</script>";
+        exit();
+    }
+    // Validate product_price to ensure it is numeric
+    if (!is_numeric($product_price) || $product_price < 0) {
+        echo "<script>alert('Giá sản phẩm không hợp ê');</script>";
+        exit();
+    }
+
+
+
 
 
     $product_image1 = $_FILES['product_image1']['name'];
@@ -161,14 +180,27 @@ if (isset($_POST['edit_product'])) {
     move_uploaded_file($temp_image3, "./product_images/$product_image3");
 
     //query
-    $update_product = "update `products` set product_title='$product_title',product_description='$product_description',product_keyword='$product_keywords',danhmuc_id='$product_category',theloai_id='$product_brands',product_image1='$product_image1',product_image2='$product_image2',product_image3='$product_image3',product_price='$product_price ' where product_id = $edit_id"; //neu khong de product_id == $edit_id thi no se update toan bo table
-    $result_update = mysqli_query($con, $update_product);
+    // Prepare the update query with parameter binding
+    $update_product = "UPDATE `products` SET product_title=?, product_description=?, product_keyword=?, danhmuc_id=?, theloai_id=?, product_image1=?, product_image2=?, product_image3=?, product_price=? WHERE product_id = ?";
+    $stmt = mysqli_prepare($con, $update_product);
+
+    // Bind parameters
+    mysqli_stmt_bind_param($stmt, "sssiisssdi", $product_title, $product_description, $product_keywords, $product_category, $product_brands, $product_image1, $product_image2, $product_image3, $product_price, $edit_id);
+
+    // Execute the statement
+    $result_update = mysqli_stmt_execute($stmt);
+
+    // Check for success
     if ($result_update) {
         echo "<script>alert('Cập nhật thành công');</script>";
         echo "<script>window.open('./index.php','_self')</script>";
     } else {
-        echo "alert('Cập nhật không thành công')";
+        echo "<script>alert('Cập nhật không thành công');</script>";
     }
+
+    // Close the statement
+    mysqli_stmt_close($stmt);
+
 
 }
 

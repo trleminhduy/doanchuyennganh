@@ -1,18 +1,26 @@
 <?php
-//show trong input
+// Show in input
 if (isset($_GET['edit_brands'])) {
     $edit_brands = $_GET['edit_brands'];
-    $get_brands = "Select * from `theloai` where `theloai_id` = '$edit_brands'";
+    $get_brands = "SELECT * FROM `theloai` WHERE `theloai_id` = '$edit_brands'";
     $result = mysqli_query($con, $get_brands);
     $row = mysqli_fetch_assoc($result);
     $brands_title = $row['theloai_title'];
-
 }
+
 if (isset($_POST['edit_cat'])) {
     $cat_title = $_POST['brands_title'];
 
+    // Validate brand title (allow letters and spaces)
+    if (!preg_match('/^[A-Za-z\s]+$/', $cat_title)) {
+        echo "<script>alert('Tên nhà xuất bản chỉ được chứa chữ cái và khoảng trắng');</script>";
+        echo "<script>window.location.href='index.php?view_categories'</script>";
+        exit(); // Stop further processing if validation fails
+    }
+
     $update_query = "UPDATE `theloai` SET `theloai_title` = '$cat_title' WHERE `theloai_id` = '$edit_brands'";
     $result = mysqli_query($con, $update_query);
+
     if ($result) {
         echo "<script>alert('Chỉnh sửa thành công');</script>";
         echo "<script>window.location.href='index.php?view_categories'</script>";
@@ -20,12 +28,9 @@ if (isset($_POST['edit_cat'])) {
         echo "<script>alert('Có lỗi chỉnh sửa');</script>";
         echo "<script>window.location.href='index.php?view_categories'</script>";
     }
-
 }
-
-
-
 ?>
+
 <div class="container mt-3">
     <h1 class="text-center text-danger">Chỉnh sửa nhà xuất bản</h1>
     <form action="" method="post" class="text-center">
