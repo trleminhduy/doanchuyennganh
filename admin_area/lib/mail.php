@@ -101,7 +101,7 @@
                 <button type="submit" name="send" id="contact-submit">Gửi</button>
             </fieldset>
             <fieldset>
-                <a href="/ECOMMERCE/admin_area/index.php?list_users">Quay về trang chủ</a>
+                <a href="../index.php">Quay về trang chủ</a>
             </fieldset>
         </form>
     </div>
@@ -152,7 +152,7 @@ if (isset($_POST["send"])) {
         echo "<h3>Err: " . $mail->ErrorInfo . '</h3>';
     } else {
         echo "<h3>Send mail thành công</h3>";
-        echo "<a href='\ECOMMERCE\admin_area\index.php'>Trở về trang chủ</a>";
+        echo "<a href='../index.php'>Trở về trang chủ</a>";
     }
     ;
 }

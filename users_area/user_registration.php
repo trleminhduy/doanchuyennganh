@@ -11,8 +11,8 @@ include('../functions/common_function.php');
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ĐĂNG KÝ TÀI KHOẢN - PAGE</title>
-    <link rel="stylesheet" href="/asset/style.css">
-    <link rel="stylesheet" href="\ECOMMERCE\asset\dangki.css">
+    <link rel="stylesheet" href="../asset/style.css">
+    <link rel="stylesheet" href="../asset/dangki.css">
 
     <style>
         .title {
@@ -100,7 +100,7 @@ include('../functions/common_function.php');
                     </div>
                     <div>
                         <p class="small fw-bold mt-2 pt-1 ">Quay về trang chủ <a class="text-danger"
-                                href="\ECOMMERCE\index.php">Ấn vào
+                                href="../index.php">Ấn vào
                                 đây</a></p>
 
                     </div>

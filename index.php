@@ -1,10 +1,10 @@
 <!-- connect file -->
 <?php
-include('../ECOMMERCE/includes/connect.php');
+include('./includes/connect.php');
 include('./functions/common_function.php');
 session_start();
 
-// Check if the admin is not logged in, redirect to the login page
+
 
 
 ?>
@@ -267,7 +267,7 @@ session_start();
             </div>
 
         </div>
-        
+
 
 
 

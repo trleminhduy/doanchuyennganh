@@ -1,6 +1,6 @@
 <!-- connect file -->
 <?php
-include('C:\wamp64\www\ECOMMERCE\includes\connect.php');
+include('../includes/connect.php');
 session_start();
 
 
@@ -64,7 +64,7 @@ session_start();
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="\ECOMMERCE\index.php">Home</a>
+                            <a class="nav-link active" aria-current="page" href="../index.php">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="display_all.php">Sản phẩm</a>
@@ -95,16 +95,16 @@ session_start();
             <ul class="navbar-nav me-auto">
 
                 <?php
-                if(!isset($_SESSION['username'])) { //neu cái session chưa được active thì hiện button đăng nhập
+                if (!isset($_SESSION['username'])) { //neu cái session chưa được active thì hiện button đăng nhập
                     echo "<li class='nav-item'>
                     <a class='nav-link' href='#'>Xin chào: Khách</a>
                 </li>";
                 } else {  //nếu session đã active rồi thì show button đăng xuất
                     echo "<li class='nav-item'>
-                    <a class='nav-link' href='#'>Xin chao: ".$_SESSION['username']." </a>
+                    <a class='nav-link' href='#'>Xin chao: " . $_SESSION['username'] . " </a>
                 </li>";
                 }
-                if(!isset($_SESSION['username'])) { //neu cái session chưa được active thì hiện button đăng nhập
+                if (!isset($_SESSION['username'])) { //neu cái session chưa được active thì hiện button đăng nhập
                     echo "<li class='nav-item'>
                     <a class='nav-link' href='./user_login.php'>Đăng nhập</a>
                 </li>";
@@ -137,7 +137,7 @@ session_start();
                 <!-- products -->
                 <div class="row">
                     <?php
-                    if(!isset($_SESSION['username'])) { //neu user chua dang nhap redirect qua form dang nhap
+                    if (!isset($_SESSION['username'])) { //neu user chua dang nhap redirect qua form dang nhap
                         include('user_login.php');
                     } else {
                         include('payment.php'); //else redirect qua trang payment

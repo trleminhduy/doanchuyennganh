@@ -12,8 +12,8 @@ include('../functions/common_function.php');
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dăng nhập page</title>
-    <link rel="stylesheet" href="/asset/style.css">
-    <link rel="stylesheet" href="\ECOMMERCE\asset\dangnhap.css">
+    <link rel="stylesheet" href="../asset/style.css">
+    <link rel="stylesheet" href="../asset/dangnhap.css">
 
 
 
