@@ -8,16 +8,30 @@ if (isset($_POST['insert_product'])) {
     $product_category = $_POST['product_category'];
     $product_brands = $_POST['product_brands'];
     $product_price = $_POST['product_price'];
-    $product_status = 'true';
+    //$product_status = 'true';
     $product_stock = $_POST['product_stock'];
 
 
     // Validate product_price to ensure it is numeric
-    if (!is_numeric($product_price)) {
-        echo "<script>alert('Giá sản phẩm phải là số!')</script>";
+    if (!is_numeric($product_price) || $product_price < 0 || $product_price < 1000) {
+        echo "<script>alert('Giá sản phẩm không hợp lệ')</script>";
         echo "<script>window.open('them_sanpham.php','_self')</script>";
         exit(); // Stop further processing if validation fails
     }
+
+    //validate stock
+    if (!is_numeric($product_stock) || $product_stock < 0) {
+        echo "<script>alert('Số lượng kho phải là số hoặc số không âm')</script>";
+        echo "<script>window.open('them_sanpham.php','_self')</script>";
+        exit(); // Stop further processing if validation fails
+    }
+    //validate description
+    if (empty($description) || strlen($description) > 255) {
+        echo "<script>alert('Mô tả sản phẩm không được trống và không quá 255 ký tự')</script>";
+        echo "<script>window.open('them_sanpham.php','_self')</script>";
+        exit(); // Stop further processing if validation fails
+    }
+
 
     // Access image
     $product_image1 = $_FILES['product_image1']['name'];
@@ -38,14 +52,28 @@ if (isset($_POST['insert_product'])) {
         move_uploaded_file($temp_image2, "./product_images/$product_image2");
         move_uploaded_file($temp_image3, "./product_images/$product_image3");
 
-        // Insert query
-        $insert_products = "insert into `products` (product_title,product_description,product_keyword,danhmuc_id,theloai_id,product_image1,product_image2,product_image3,product_price,date,status,product_stock) values('$product_title', '$description','$product_keyword','$product_category','$product_brands','$product_image1','$product_image2','$product_image3','$product_price',NOW(),$product_status,$product_stock)";
-        $result_query = mysqli_query($con, $insert_products);
+        //stop sql injection
+        $select_query = "SELECT * FROM `products` WHERE product_title = ?";
+        $stmt = mysqli_prepare($con, $select_query);
+        mysqli_stmt_bind_param($stmt, "s", $product_title);
+        mysqli_stmt_execute($stmt);
+        $result_select = mysqli_stmt_get_result($stmt);
+        $number = mysqli_num_rows($result_select);
+        if ($number > 0) {
+            echo "<script>alert('Sản phẩm đã có trong hệ thống')</script>";
 
-        if ($result_query) {
-            echo "THÊM THÀNH CÔNG";
         } else {
-            echo "<script>alert('Lỗi thêm')</script>";
+
+
+            // Insert query
+            $insert_products = "insert into `products` (product_title,product_description,product_keyword,danhmuc_id,theloai_id,product_image1,product_image2,product_image3,product_price,date,status,product_stock) values('$product_title', '$description','$product_keyword','$product_category','$product_brands','$product_image1','$product_image2','$product_image3','$product_price',NOW(),$product_status,$product_stock)";
+            $result_query = mysqli_query($con, $insert_products);
+
+            if ($result_query) {
+                echo "THÊM THÀNH CÔNG";
+            } else {
+                echo "<script>alert('Lỗi thêm')</script>";
+            }
         }
     }
 }
@@ -180,7 +208,7 @@ if (isset($_POST['insert_product'])) {
                 <input type="text" name="product_price" id="product_price" class="form-control"
                     placeholder="Thêm giá tiền sản phẩm" autocomplete="off" required="required">
             </div>
-            <!-- price -->
+            <!-- stock -->
             <div class="form-outline mb-4 w-50 m-auto">
                 <label for="product_stock class=" form-label">Sẵn có:</label>
                 <!-- dòng for và id phải giống nhau, chỉ có name là khác -->

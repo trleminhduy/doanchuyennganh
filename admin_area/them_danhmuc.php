@@ -1,19 +1,27 @@
 <?php
 include('../includes/connect.php');
-if (isset($_POST['insert_cat'])) {    //will trigger if user press "insert"
-    $danhmuc_title = $_POST['themdm_title'];      //save "themdm_title" vào biến 
 
-    //select data from db
-    $select_query = "Select * from `danhmuc` where danhmuc_title='$danhmuc_title'";
+if (isset($_POST['insert_cat'])) {
+    $danhmuc_title = $_POST['themdm_title'];
+
+    // Validate category title (allow letters and spaces)
+    if (!preg_match('/^[A-Za-z\s]+$/', $danhmuc_title)) {
+        echo "<script>alert('Danh mục chỉ được chứa chữ cái và khoảng trắng')</script>";
+        echo "<script>window.open('index.php?insert_categories','_self')</script>";
+        exit(); // Stop further processing if validation fails
+    }
+
+    // Select data from the database
+    $select_query = "SELECT * FROM `danhmuc` WHERE danhmuc_title='$danhmuc_title'";
     $result_select = mysqli_query($con, $select_query);
     $number = mysqli_num_rows($result_select);
+
     if ($number > 0) {
         echo "<script>alert('Danh mục đã có trong hệ thống')</script>";
     } else {
-
-
-        $insert_query = "insert into `danhmuc` (danhmuc_title) values ('$danhmuc_title')";
+        $insert_query = "INSERT INTO `danhmuc` (danhmuc_title) VALUES ('$danhmuc_title')";
         $result = mysqli_query($con, $insert_query);
+
         if ($result) {
             echo "THÊM THÀNH CÔNG";
         } else {
@@ -22,6 +30,7 @@ if (isset($_POST['insert_cat'])) {    //will trigger if user press "insert"
     }
 }
 ?>
+
 
 <h2 class="text-center">Thêm Danh mục</h2>
 

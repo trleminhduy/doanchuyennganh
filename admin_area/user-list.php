@@ -26,7 +26,7 @@ include('../includes/connect.php')
     <h3 class="text-center">
         TRANG XUẤT FILE EXCEL
         <div class="mt-5">
-            <a href="export.php" class="text-danger"> <i class="fa-solid fa-download"></i> Tải</a>
+            <a href="export-user.php" class="text-danger"> <i class="fa-solid fa-download"></i> Tải</a>
 
         </div>
 
