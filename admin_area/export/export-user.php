@@ -1,7 +1,7 @@
 <?php
 
 // Load the database configuration file 
-include_once '../includes/connect.php';
+include_once '../../includes/connect.php';
 
 // Include XLSX generator library 
 require_once 'PhpXlsxGenerator.php';

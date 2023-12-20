@@ -1,5 +1,5 @@
 <?php
-include('../includes/connect.php')
+include('')
 
 
     ?>
