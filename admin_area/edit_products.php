@@ -114,7 +114,7 @@ $theloai_title = $row_brands['theloai_title'];
         <div class="form-outline w-50 m-auto mb-4">
             <label for="product_image3" class="form-label "> Hình 3</label>
             <div class="d-flex">
-                <input type="file" name="product_image3" class="form-control w-90 m-auto">
+                <input type="file" name="product_image3" class="form-control w-90 m-auto" required>
                 <img src="../asset/img/<?php echo $product_image3 ?>" alt="" class="edit_image">
 
             </div>

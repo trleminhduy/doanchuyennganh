@@ -20,13 +20,13 @@
     <table class="table table-bordered mt-5">
         <thead class="bg-info">
             <?php
-            $get_users = "Select * from `user_table`  ";
+            $get_users = "Select * from `user_table`  "; 
             $result = mysqli_query($con, $get_users);
             $row_count = mysqli_num_rows($result);
 
 
             if ($row_count == 0) {
-                echo "<h2 class='text-danger text-center mt-5' >KHONG CO USER NAO</h2>";
+                echo "<h2 class='text-danger text-center mt-5' >KHÔNG CÓ USER NÀO</h2>";
             } else {
                 echo "<tr>
                 <th>STT</th>

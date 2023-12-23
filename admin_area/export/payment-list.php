@@ -26,7 +26,7 @@ include('../../includes/connect.php')
     <h3 class="text-center">
         TRANG XUẤT FILE EXCEL
         <div class="mt-5">
-            <a href="export-user.php" class="text-danger"> <i class="fa-solid fa-download"></i> Tải</a>
+            <a href="export-payment.php" class="text-danger"> <i class="fa-solid fa-download"></i> Tải</a>
 
         </div>
 
@@ -35,43 +35,45 @@ include('../../includes/connect.php')
     <table class="table table-bordered mt-5">
         <thead class="bg-info">
             <?php
-            $get_users = "Select * from `user_table`  ";
+            $get_users = "Select * from `user_payments`  ";
             $result = mysqli_query($con, $get_users);
             $row_count = mysqli_num_rows($result);
 
 
             if ($row_count == 0) {
-                echo "<h2 class='text-danger text-center mt-5' >KHÔNG CÓ USER NÀO</h2>";
+                echo "<h2 class='text-danger text-center mt-5' >KHÔNG CÓ THANH TOÁN NÀO</h2>";
             } else {
                 echo "<tr>
                 <th>STT</th>
-                <th>Tên đăng nhập</th>
-                <th>Họ và tên</th>
-
-                <th>Email khách hàng</th>
-                <th>Địa chỉ khách hàng</th>
-                <th>Số điện thoại khách hàng</th>
+                <th>ID thanh toán</th>
+                <th>ID đơn hàng</th>
+                <th>Số hoá đơn</th>
+                <th>Tổng tiền</th>
+                <th>Phương thức thanh toán</th>
+                <th>Ngày thanh toán</th>
                 
             </tr>
         </thead>
         <tbody>";
                 $number = 0;
                 while ($row_data = mysqli_fetch_assoc($result)) {
-                    $user_id = $row_data['user_id'];
-                    $user_username = $row_data['username'];
-                    $user_fullname = $row_data['user_fullname'];
-                    $user_email = $row_data['user_email'];
-                    $user_address = $row_data['user_address'];
-                    $user_mobile = $row_data['user_mobile'];
+                    $payment_id = $row_data['payment_id'];
+                    $order_id = $row_data['order_id'];
+                    $invoice_number = $row_data['invoice_number'];
+                    $amount = $row_data['amount'];
+                    $payment_mode = $row_data['payment_mode'];
+                    $date = $row_data['date'];
 
                     $number++;
                     echo "  <tr>
                 <td>$number</td>
-                <td>$user_username</td>
-                <td>$user_fullname</td>
-                <td>$user_email</td>
-                <td>$user_address</td>
-                <td>$user_mobile </td>
+                <td>$payment_id</td>
+                <td>$order_id</td>
+                <td>$invoice_number</td>
+                <td>$amount</td>
+                <td>$payment_mode </td>
+                <td>$date </td>
+
                 
                
             </tr>";

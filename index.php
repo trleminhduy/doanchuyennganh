@@ -84,6 +84,7 @@ session_start();
             align-items: stretch;
             height: 100%;
         }
+        
     </style>
     <!-- Bootstrap and jQuery scripts -->
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"

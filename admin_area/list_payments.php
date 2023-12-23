@@ -11,6 +11,10 @@
     <h3 class="text-center">
         TẤT CẢ THANH TOÁN QUA CỔNG
     </h3>
+    <div class="col-12 d-flex justify-content-center">
+        <button class="btn"><a href="./export/payment-list.php"
+                class="btn nav-link text-light bg-info my-1">EXPORT</a></button>
+    </div>
 
     <table class="table table-bordered mt-5">
         <thead class="bg-info">
@@ -26,7 +30,7 @@
                 echo "<tr>
                 <th>STT</th>
                 <th>Số hoá đơn</th>
-                <th>Số lượng</th>
+                <th>Tổng tiền</th>
                 <th>Phương thức thanh toán</th>
                 <th>Ngày đặt</th>
                 <th>Xoá</th>

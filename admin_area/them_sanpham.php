@@ -8,7 +8,7 @@ if (isset($_POST['insert_product'])) {
     $product_category = $_POST['product_category'];
     $product_brands = $_POST['product_brands'];
     $product_price = $_POST['product_price'];
-    //$product_status = 'true';
+    $product_status = 'true';
     $product_stock = $_POST['product_stock'];
 
 
@@ -25,6 +25,7 @@ if (isset($_POST['insert_product'])) {
         echo "<script>window.open('them_sanpham.php','_self')</script>";
         exit(); // Stop further processing if validation fails
     }
+
     //validate description
     if (empty($description) || strlen($description) > 255) {
         echo "<script>alert('Mô tả sản phẩm không được trống và không quá 255 ký tự')</script>";
