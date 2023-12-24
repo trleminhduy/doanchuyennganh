@@ -67,7 +67,7 @@ if (isset($_POST['insert_product'])) {
 
 
             // Insert query
-            $insert_products = "insert into `products` (product_title,product_description,product_keyword,danhmuc_id,theloai_id,product_image1,product_image2,product_image3,product_price,date,status,product_stock) values('$product_title', '$description','$product_keyword','$product_category','$product_brands','$product_image1','$product_image2','$product_image3','$product_price',NOW(),$product_status,$product_stock)";
+            $insert_products = "insert into `products` (product_title,product_description,product_keyword,nxb_id,nxb_id,product_image1,product_image2,product_image3,product_price,date,status,product_stock) values('$product_title', '$description','$product_keyword','$product_category','$product_brands','$product_image1','$product_image2','$product_image3','$product_price',NOW(),$product_status,$product_stock)";
             $result_query = mysqli_query($con, $insert_products);
 
             if ($result_query) {

@@ -8,7 +8,7 @@ if (isset($_GET['edit_products'])) {
     $product_description = $row['product_description'];
     $product_keywords = $row['product_keyword'];
     $danhmuc_id = $row['danhmuc_id'];
-    $theloai_id = $row['theloai_id'];
+    $theloai_id = $row['nxb_id'];
     $product_image1 = $row['product_image1'];
     $product_image2 = $row['product_image2'];
     $product_image3 = $row['product_image3'];
@@ -25,10 +25,10 @@ $danhmuc_title = $row_category['danhmuc_title'];
 
 
 //fetching the loai name
-$select_brands = "select * from `theloai` where theloai_id=$theloai_id";
+$select_brands = "select * from `nhaxuatban` where nxb_id=$theloai_id";
 $result_brands = mysqli_query($con, $select_brands);
 $row_brands = mysqli_fetch_assoc($result_brands);
-$theloai_title = $row_brands['theloai_title'];
+$theloai_title = $row_brands['nxb_title'];
 // echo $theloai_title;
 
 
@@ -84,11 +84,11 @@ $theloai_title = $row_brands['theloai_title'];
                 </option>
 
                 <?php
-                $select_brands_all = "select * from `theloai`";
+                $select_brands_all = "select * from `nhaxuatban`";
                 $result_brands_all = mysqli_query($con, $select_brands_all);
                 while ($row_brands_all = mysqli_fetch_assoc($result_brands_all)) {
-                    $theloai_title = $row_brands_all['theloai_title'];
-                    $theloai_id = $row_brands_all['theloai_id'];
+                    $theloai_title = $row_brands_all['nxb_title'];
+                    $theloai_id = $row_brands_all['nxb_id'];
                     echo "<option value='$theloai_id'>$theloai_title</option>";
                 }
 
@@ -181,7 +181,7 @@ if (isset($_POST['edit_product'])) {
 
     //query
     // Prepare the update query with parameter binding
-    $update_product = "UPDATE `products` SET product_title=?, product_description=?, product_keyword=?, danhmuc_id=?, theloai_id=?, product_image1=?, product_image2=?, product_image3=?, product_price=? WHERE product_id = ?";
+    $update_product = "UPDATE `products` SET product_title=?, product_description=?, product_keyword=?, danhmuc_id=?, nxb_id=?, product_image1=?, product_image2=?, product_image3=?, product_price=? WHERE product_id = ?";
     $stmt = mysqli_prepare($con, $update_product);
 
     // Bind parameters

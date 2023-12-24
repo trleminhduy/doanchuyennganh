@@ -118,7 +118,7 @@ if (!isset($_SESSION['admin_username'])) {
                 include('them_danhmuc.php');
             }
             if (isset($_GET['insert_genre'])) {
-                include('them_theloai.php');
+                include('them_nxb.php');
             }
             if (isset($_GET['view_products'])) {
                 include('view_products.php');

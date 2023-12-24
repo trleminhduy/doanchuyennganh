@@ -22,7 +22,7 @@ function getProducts()
                 $product_image1 = $row['product_image1'];
                 $product_price = $row['product_price'];
                 $danhmuc_id = $row['danhmuc_id'];
-                $theloai_id = $row['theloai_id'];
+                $theloai_id = $row['nxb_id'];
                 echo "  <div class='col-md-4 mb-2'>
                         <div class='card' style='width: 18rem;'>
                             <img src='./admin_area/product_images/$product_image1' class='card-img-top' alt='$product_title'>
@@ -104,7 +104,7 @@ function get_all_products()
             $product_image1 = $row['product_image1'];
             $product_price = $row['product_price'];
             $danhmuc_id = $row['danhmuc_id'];
-            $theloai_id = $row['theloai_id'];
+            $theloai_id = $row['nxb_id'];
             echo "  <div class='col-md-4 mb-2'>
                         <div class='card' style='width: 18rem;'>
                             <img src='./admin_area/product_images/$product_image1' class='card-img-top' alt='$product_title'>
@@ -184,7 +184,7 @@ function get_unique_brand()
     //condition to check isset or not
     if (isset($_GET['brand'])) {
         $theloai_id = $_GET['brand'];
-        $select_query = "Select * from `products` where theloai_id=$theloai_id";
+        $select_query = "Select * from `products` where nxb_id=$theloai_id";
         $result_query = mysqli_query($con, $select_query);
         $num_of_rows = mysqli_num_rows($result_query);
         if ($num_of_rows == 0) {
@@ -197,7 +197,7 @@ function get_unique_brand()
             $product_image1 = $row['product_image1'];
             $product_price = $row['product_price'];
             $danhmuc_id = $row['danhmuc_id'];
-            $theloai_id = $row['theloai_id'];
+            $theloai_id = $row['nxb_id'];
             echo "
       <div class='col-md-4 mb-2'>
         <div class='card' style='width: 18rem;'>
@@ -232,21 +232,21 @@ function getUniqueBrands()
     global $con;
 
     // Select distinct brands from the products table
-    $select_brands_query = "SELECT DISTINCT theloai_id FROM `products`";
+    $select_brands_query = "SELECT DISTINCT nxb_id FROM `products`";
     $result_brands = mysqli_query($con, $select_brands_query);
 
     // Check if there are any brands
     if (mysqli_num_rows($result_brands) > 0) {
         while ($row_brand = mysqli_fetch_assoc($result_brands)) {
-            $theloai_id = $row_brand['theloai_id'];
+            $theloai_id = $row_brand['nxb_id'];
 
             // Fetch the brand title from the theloai table
-            $select_brand_title = "SELECT theloai_title FROM `theloai` WHERE theloai_id = $theloai_id";
+            $select_brand_title = "SELECT nxb_title FROM `nhaxuatban` WHERE nxb_id = $theloai_id";
             $result_brand_title = mysqli_query($con, $select_brand_title);
 
             // Check if the brand title exists
             if ($row_brand_title = mysqli_fetch_assoc($result_brand_title)) {
-                $theloai_title = $row_brand_title['theloai_title'];
+                $theloai_title = $row_brand_title['nxb_title'];
                 echo "<li class='nav-item'>
                         <a href='index.php?brand=$theloai_id' class='nav-link text-light'>$theloai_title</a>
                       </li>";
@@ -282,12 +282,12 @@ function getCat()
 function getBrands()
 {
     global $con;
-    $select_theloai = "Select * from `theloai`";
+    $select_theloai = "Select * from `nhaxuatban`";
     $result_theloai = mysqli_query($con, $select_theloai);
     // $row_data = mysqli_fetch_assoc($result_danhmuc);
     while ($row_data = mysqli_fetch_assoc($result_theloai)) {
-        $theloai_title = $row_data['theloai_title'];
-        $theloai_id = $row_data['theloai_id'];
+        $theloai_title = $row_data['nxb_title'];
+        $theloai_id = $row_data['nxb_id'];
         echo "<li class='nav-item'>
                         <a href='index.php?brand=$theloai_id' class='nav-link text-light'>$theloai_title </a>
                             </li>";
@@ -316,7 +316,7 @@ function search_product()
             $product_image1 = $row['product_image1'];
             $product_price = $row['product_price'];
             $danhmuc_id = $row['danhmuc_id'];
-            $theloai_id = $row['theloai_id'];
+            $theloai_id = $row['nxb_id'];
             echo "  <div class='col-md-4 mb-2'>
                         <div class='card' style='width: 18rem;'>
                             <img src='./admin_area/product_images/$product_image1' class='card-img-top' alt='$product_title'>
@@ -356,7 +356,7 @@ function view_details()
 
                     $product_price = $row['product_price'];
                     $danhmuc_id = $row['danhmuc_id'];
-                    $theloai_id = $row['theloai_id'];
+                    $theloai_id = $row['nxb_id'];
                     echo "  <div class='col-md-4 mb-2'>
                         <div class='card' style='width: 18rem;'>
                             <img src='./admin_area/product_images/$product_image1' class='card-img-top' alt='$product_title'>

@@ -41,12 +41,12 @@
         </thead>
         <tbody>
             <?php
-            $get_brands = "Select * from `theloai`";
+            $get_brands = "Select * from `nhaxuatban`";
             $result = mysqli_query($con, $get_brands);
             $number = 0;
             while ($row = mysqli_fetch_assoc($result)) {
-                $theloai_id = $row['theloai_id'];
-                $theloai_title = $row['theloai_title'];
+                $theloai_id = $row['nxb_id'];
+                $theloai_title = $row['nxb_title'];
 
                 $number++;
                 ?>

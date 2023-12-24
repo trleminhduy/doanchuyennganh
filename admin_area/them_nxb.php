@@ -11,14 +11,14 @@ if (isset($_POST['insert_brand'])) {
         exit(); // Stop further processing if validation fails
     } else {
         // Select data from the database
-        $select_query = "SELECT * FROM `theloai` WHERE theloai_title='$theloai_title'";
+        $select_query = "SELECT * FROM `nhaxuatban` WHERE nxb_title='$theloai_title'";
         $result_select = mysqli_query($con, $select_query);
         $number = mysqli_num_rows($result_select);
 
         if ($number > 0) {
             echo "<script>alert('Đã có nhà xuất bản trong hệ thống')</script>";
         } else {
-            $insert_query = "INSERT INTO `theloai` (theloai_title) VALUES ('$theloai_title')";
+            $insert_query = "INSERT INTO `nhaxuatban` (nxb_title) VALUES ('$theloai_title')";
             $result = mysqli_query($con, $insert_query);
 
             if ($result) {

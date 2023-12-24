@@ -2,10 +2,10 @@
 // Show in input
 if (isset($_GET['edit_brands'])) {
     $edit_brands = $_GET['edit_brands'];
-    $get_brands = "SELECT * FROM `theloai` WHERE `theloai_id` = '$edit_brands'";
+    $get_brands = "SELECT * FROM `nhaxuatban` WHERE `nxb_id` = '$edit_brands'";
     $result = mysqli_query($con, $get_brands);
     $row = mysqli_fetch_assoc($result);
-    $brands_title = $row['theloai_title'];
+    $brands_title = $row['nxb_title'];
 }
 
 if (isset($_POST['edit_cat'])) {
@@ -18,7 +18,7 @@ if (isset($_POST['edit_cat'])) {
         exit(); // Stop further processing if validation fails
     }
 
-    $update_query = "UPDATE `theloai` SET `theloai_title` = '$cat_title' WHERE `theloai_id` = '$edit_brands'";
+    $update_query = "UPDATE `nhaxuatban` SET `nxb_title` = '$cat_title' WHERE `nxb_id` = '$edit_brands'";
     $result = mysqli_query($con, $update_query);
 
     if ($result) {
