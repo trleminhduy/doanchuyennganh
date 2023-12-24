@@ -4,12 +4,8 @@ include('../includes/connect.php');
 if (isset($_POST['insert_cat'])) {
     $danhmuc_title = $_POST['themdm_title'];
 
-    // Validate category title (allow letters and spaces)
-    if (!preg_match('/^[A-Za-z\s]+$/', $danhmuc_title)) {
-        echo "<script>alert('Danh mục chỉ được chứa chữ cái và khoảng trắng')</script>";
-        echo "<script>window.open('index.php?insert_categories','_self')</script>";
-        exit(); // Stop further processing if validation fails
-    }
+
+
 
     // Select data from the database
     $select_query = "SELECT * FROM `danhmuc` WHERE danhmuc_title='$danhmuc_title'";

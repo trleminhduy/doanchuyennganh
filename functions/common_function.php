@@ -155,7 +155,7 @@ function get_unique_categories()
             $product_image1 = $row['product_image1'];
             $product_price = $row['product_price'];
             $danhmuc_id = $row['danhmuc_id'];
-            $theloai_id = $row['theloai_id'];
+            $theloai_id = $row['nxb_id'];
             echo "
       <div class='col-md-4 mb-2'>
         <div class='card' style='width: 18rem;'>

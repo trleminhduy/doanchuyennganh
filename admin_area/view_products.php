@@ -46,7 +46,7 @@
 
 
     <table class=" table table-bordered mt-5 text-center ">
-        <thead>
+        <!-- <thead>
             <tr>
                 <th>ID sản phẩm</th>
                 <th>Tên sản phẩm</th>
@@ -58,8 +58,8 @@
                 <th>Xoá</th>
 
             </tr>
-        </thead>
-        <tbody>
+        </thead> -->
+        <div class="container mt-5">
             <?php
             $get_products = "Select * from `products`";
             $result = mysqli_query($con, $get_products);
@@ -73,41 +73,47 @@
                 $product_stock = $row['product_stock'];
                 $number++;
                 ?>
-                <tr>
-                    <td>
-                        <?php echo $number; ?>
-                    </td>
-                    <td>
-                        <?php echo $product_title; ?>
-                    </td>
-                    <td> <img src='./product_images/<?php echo $product_image1; ?>' class='product_img'></img> </td>
-                    <td>
-                        <?php echo $product_price; ?>
-                    </td>
-                    <td class="text-danger">
-                        <?php
-                        $get_count = "Select * from `orders_pending` where product_id = $product_id"; //fetch check so luong da ban ra
-                        $result_count = mysqli_query($con, $get_count);
-                        $rows_count = mysqli_num_rows($result_count);
-                        echo $rows_count;
-
-                        ?>
-                    </td>
-                    <td>
-                        <?php echo $product_stock; ?>
-                    </td>
-                    <td><a href='index.php?edit_products=<?php echo $product_id ?>'><i
-                                class='fa-solid fa-pen-to-square'></i></a></td>
-                    <td><a href='index.php?delete_products=<?php echo $product_id ?>'><i
-                                class='fa-solid fa-trash text-danger'></i></a>
-                    </td>
-                </tr>
+                <div class="card mb-3">
+                    <div class="row g-0">
+                        <div class="col-md-3 mt-3">
+                            <img src='./product_images/<?php echo $product_image1; ?>' class='img-fluid rounded-start'
+                                alt='Product Image'>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="card-body">
+                                <h5 class="card-title text-success">
+                                    <?php echo $product_title; ?>
+                                </h5>
+                                <p class="card-text">ID sản phẩm:
+                                    <?php echo $product_id; ?>
+                                </p>
+                                <p class="card-text">Giá tiền:
+                                    <?php echo $product_price; ?>
+                                </p>
+                                <p class="card-text text-danger">Tổng được bán ra:
+                                    <?php
+                                    $get_count = "Select * from `orders_pending` where product_id = $product_id";
+                                    $result_count = mysqli_query($con, $get_count);
+                                    $rows_count = mysqli_num_rows($result_count);
+                                    echo $rows_count;
+                                    ?>
+                                </p>
+                                <p class="card-text text-danger">Kho:
+                                    <?php echo $product_stock; ?>
+                                </p>
+                                <a href='index.php?edit_products=<?php echo $product_id ?>' class='btn btn-primary'><i
+                                        class='fa-solid fa-pen-to-square'></i> Chỉnh sửa</a>
+                                <a href='index.php?delete_products=<?php echo $product_id ?>' class='btn btn-danger'><i
+                                        class='fa-solid fa-trash'></i> Xoá</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <?php
             }
             ?>
+        </div>
 
-
-        </tbody>
     </table>
 </body>
 

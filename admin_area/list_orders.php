@@ -47,7 +47,8 @@
                     $order_status = $row_data['order_status'];
                     $number++;
                     echo "  <tr>
-                <td>$number</td>
+                                <td> <a href='../users_area/user_buy_item.php'>$number</a> </td>
+
                 <td>$user_id</td>
                
                 <td>$amount_due</td>

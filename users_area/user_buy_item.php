@@ -70,9 +70,11 @@ session_start();
                         <thead>
                             <tr>
                                 <th>Tên sản phẩm</th>
-                                <th>Hình sản phẩm</th>
+
                                 <th>Số lượng</th>
-                                <th>Thành tiền</th>
+                                <th>Số hoá đơn</th>
+                                <!-- <th>Số hoá đơn</th> -->
+
                             </tr>
                         </thead>
                         <tbody>
@@ -90,16 +92,19 @@ session_start();
                                     //$product_image1 = $row['product_image1'];
                                     $quantity = $row['quantity'];
                                     $price_table = $row['product_price'] * $quantity;
+                                    $invoice_number = $row['invoice_number'];
                                     ?>
 
                                     <tr>
                                         <td>
                                             <?php echo $product_title ?>
                                         </td>
-                                        <!-- <td><img src="./asset/img/<?php echo $product_image1 ?>" alt="" class="cart_img"></td> -->
-                                        <td><input type="text" name="qty" class="form-input w-50"></td>
+
                                         <td>
-                                            <?php echo $price_table ?>
+                                            <?php echo $quantity ?>
+                                        </td>
+                                        <td>
+                                            <?php echo $invoice_number ?>
                                         </td>
                                     </tr>
                                 <?php }
