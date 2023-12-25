@@ -35,6 +35,8 @@ include('../functions/common_function.php');
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-eOJMYsd53ii+dfh6GLmZJIoU8HfAX5t9y7duGqkiWSq5I3n+oRtq4ByfG5trF5J"
         crossorigin="anonymous"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 
 </head>
 
@@ -72,7 +74,7 @@ include('../functions/common_function.php');
                     <!-- password field -->
                     <div class="form-outline mb-4 ">
                         <label for="user_password" class="form-label">Mật khẩu</label>
-                        <input type="password" id="user_password" class="form-control"
+                        <input type="password" id="user_password" name="user_password" class="form-control"
                             placeholder="Mật khẩu phải trên 8 ký tự" autocomplete="off" required name="user_password">
                     </div>
                     <!-- confirm password field -->
@@ -115,6 +117,21 @@ include('../functions/common_function.php');
 
 
 </body>
+<script>document.addEventListener('DOMContentLoaded', function () {
+        var passwordInput = document.getElementById('user_password'); // Thay đổi 'user_password' bằng ID của trường nhập mật khẩu
+        var passwordInfo = document.createElement('div');
+        passwordInfo.style.display = 'none';
+        passwordInfo.textContent = 'Mật khẩu phải trên 8 ký tự.';
+        passwordInput.parentNode.insertBefore(passwordInfo, passwordInput.nextSibling);
+
+        passwordInput.addEventListener('input', function () {
+            if (passwordInput.value.length < 8) {
+                passwordInfo.style.display = 'block';
+            } else {
+                passwordInfo.style.display = 'none';
+            }
+        });
+    });</script>
 
 </html>
 
@@ -167,10 +184,24 @@ if (isset($_POST['user_register'])) {
     if ($rows_count > 0) {
         echo "<script> alert('Tên tài khoản hoặc email đã tồn tại!')</script>";
         echo "<script>window.open('user_registration.php','_self')</script>";
+        exit();
 
-    } elseif ($user_password != $conf_user_password) {
-        echo "<script> alert('MẬT KHẨU KHÔNG TRÙNG NHAU!')</script>";
-
+    } else if ($user_password != $conf_user_password) {
+        echo "<script>
+            Swal.fire({
+                title: 'Lỗi!',
+                text: 'MẬT KHẨU KHÔNG TRÙNG NHAU!',
+                icon: 'error',
+                    timer: 50000,
+                
+                confirmButtonText: 'Thử lại'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = 'user_registration.php';
+                }
+            });
+          </script>";
+        exit();
     } else {
         //insert query
         $insert_query = "insert into `user_table`(username,user_fullname, user_email,user_password,user_image,user_ip,user_address,user_mobile) values ('$user_username','$user_fullname','$user_email', '$hash_password','$user_image','$user_ip','$user_address','$user_contact') ";

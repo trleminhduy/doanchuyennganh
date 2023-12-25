@@ -33,6 +33,8 @@
                 <th>Ngày đặt</th>
                 <th>Trạng thái thanh toán</th>
                 <th>Trạng thái đơn hàng</th>
+                <th>Xoá đơn hàng</th>
+
 
             </tr>
         </thead>
@@ -60,15 +62,25 @@
                 <td>$total_products</td>
                 <td>$invoice_number</td>
                 <td>$order_date</td>
-                <td>$order_status_display</td>";
+                <td>$order_status_display</td>
+                
+
+                 ";
 
                 if ($order_status == 'Complete') {
                     echo "<td>Đã xác nhận đơn hàng</td>";
+                    // Không hiển thị nút xóa cho đơn hàng đã hoàn tất
+                    echo "<td>Đã xác nhận</td>";
                 } else {
                     echo "<td><a href='confirm_payment.php?order_id=$order_id'>Đang chờ xác nhận</a></td>";
+                    // Hiển thị nút xóa cho đơn hàng chưa hoàn tất
+                    echo "<td><a href='cancel_order_item.php?delete_orders=" . $row_orders['order_id'] . "' onclick='return confirm(\"Bạn có chắc chắn muốn xóa đơn hàng này không?\");'><i class='fa-solid fa-trash text-danger'></i></a></td>";
                 }
 
-                echo "</tr>";
+
+
+
+                //echo "<td><a href='cancel_order_item.php?delete_orders=" . $row_orders['order_id'] . "' onclick='return confirm(\"Bạn có chắc chắn muốn xóa đơn hàng này không?\");'><i class='fa-solid fa-trash text-danger'></i></a></td></tr>";
                 $number++;
             }
             ?>

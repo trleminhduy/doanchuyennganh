@@ -20,6 +20,8 @@ include('../functions/common_function.php');
     <!-- bootstrap css link -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 
 
     <style>
@@ -98,32 +100,38 @@ if (isset($_POST['user_login'])) {
         $_SESSION['username'] = $user_username;
 
         if (password_verify($user_password, $row_data['user_password'])) {
-            // echo "<script>alert('Đăng nhập thành công') </script>";
-
-            if ($row_count == 1 and $row_count_cart == 0) {
-                $_SESSION['username'] = $user_username;
-                //check user login va cart kh co item thi redirect lai profile
-                echo "<script>alert('Đăng nhập thành công') </script>";
-                echo "<script> window.open('profile.php','_self')</script>";
-
-
-
-            } else {  //neu user login va user dang co item trong cart thi chuyen qua trang payment
-                $_SESSION['username'] = $user_username;
-
-                echo "<script>alert('Đăng nhập thành công') </script>";
-                echo "<script> window.open('payment.php','_self')</script>"; //user da co item trong cart thi redirect qua trang thanh toan
-            }
-
-
-
+            $redirectPage = ($row_count == 1 && $row_count_cart == 0) ? 'profile.php' : 'payment.php';
+            echo "<script>
+                Swal.fire({
+                    title: 'Đăng nhập thành công',
+                    icon: 'success',
+                    showConfirmButton: false,
+                    timer: 1200
+                }).then(() => {
+                    window.location.href = '$redirectPage';
+                });
+              </script>";
         } else {
-            echo "<script>alert('Tài khoản hoặc mật khẩu không chính xác') </script>";
-
+            echo "<script>
+                Swal.fire({
+                    title: 'Lỗi!',
+                    text: 'Tài khoản hoặc mật khẩu không chính xác',
+                    icon: 'error',
+                    showConfirmButton: false,
+                    timer: 1200
+                });
+              </script>";
         }
-
     } else {
-        echo "<script>alert('Tài khoản hoặc mật khẩu không chính xác') </script>";
+        echo "<script>
+            Swal.fire({
+                title: 'Lỗi!',
+                text: 'Tài khoản hoặc mật khẩu không chính xác',
+                icon: 'error',
+                showConfirmButton: false,
+                timer: 1200
+            });
+          </script>";
     }
 }
 
