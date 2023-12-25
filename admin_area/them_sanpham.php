@@ -67,7 +67,7 @@ if (isset($_POST['insert_product'])) {
 
 
             // Insert query
-            $insert_products = "insert into `products` (product_title,product_description,product_keyword,nxb_id,nxb_id,product_image1,product_image2,product_image3,product_price,date,status,product_stock) values('$product_title', '$description','$product_keyword','$product_category','$product_brands','$product_image1','$product_image2','$product_image3','$product_price',NOW(),$product_status,$product_stock)";
+            $insert_products = "insert into `products` (product_title,product_description,product_keyword,danhmuc_id,nxb_id,product_image1,product_image2,product_image3,product_price,date,status,product_stock) values('$product_title', '$description','$product_keyword','$product_category','$product_brands','$product_image1','$product_image2','$product_image3','$product_price',NOW(),$product_status,$product_stock)";
             $result_query = mysqli_query($con, $insert_products);
 
             if ($result_query) {
@@ -171,11 +171,11 @@ if (isset($_POST['insert_product'])) {
                 <select name="product_brands" id="" class="form-select">
                     <option value="">Chọn nhà xuất bản</option>
                     <?php
-                    $select_query = "Select * from `theloai`";
+                    $select_query = "Select * from `nhaxuatban`";
                     $result_query = mysqli_query($con, $select_query);
                     while ($row = mysqli_fetch_assoc($result_query)) {
-                        $theloai_title = $row['theloai_title'];
-                        $theloai_id = $row['theloai_id'];
+                        $theloai_title = $row['nxb_title'];
+                        $theloai_id = $row['nxb_id'];
 
                         echo "<option value='$theloai_id'>$theloai_title</option>";
 

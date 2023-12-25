@@ -19,7 +19,15 @@ if (isset($_POST['insert_cat'])) {
         $result = mysqli_query($con, $insert_query);
 
         if ($result) {
-            echo "THÊM THÀNH CÔNG";
+            echo "<script>
+                Swal.fire({
+                    title: 'Thêm thành công!',
+                    
+                    icon: 'success',
+                    showConfirmButton: false,
+                    timer: 670
+                });
+              </script>";
         } else {
             echo "<script>alert('THÊM KHÔNG THÀNH CÔNG')</script>";
         }

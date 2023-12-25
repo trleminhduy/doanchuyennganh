@@ -1,5 +1,5 @@
 <?php
-include('')
+include('../../includes/connect.php')
 
 
     ?>
@@ -9,7 +9,7 @@ include('')
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Danh sách user</title>
+    <title>Danh sách đơn hàng</title>
     <!-- bootstrap css link -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
@@ -26,7 +26,7 @@ include('')
     <h3 class="text-center">
         TRANG XUẤT FILE EXCEL
         <div class="mt-5">
-            <a href="export-user.php" class="text-danger"> <i class="fa-solid fa-download"></i> Tải</a>
+            <a href="export-orders.php" class="text-danger"> <i class="fa-solid fa-download"></i> Tải</a>
 
         </div>
 
@@ -35,43 +35,50 @@ include('')
     <table class="table table-bordered mt-5">
         <thead class="bg-info">
             <?php
-            $get_users = "Select * from `user_table`  ";
+            $get_users = "Select * from `user_orders`  ";
             $result = mysqli_query($con, $get_users);
             $row_count = mysqli_num_rows($result);
 
 
             if ($row_count == 0) {
-                echo "<h2 class='text-danger text-center mt-5' >KHONG CO USER NAO</h2>";
+                echo "<h2 class='text-danger text-center mt-5' >KHÔNG CÓ ĐƠN HÀNG NÀO</h2>";
             } else {
                 echo "<tr>
                 <th>STT</th>
-                <th>Tên đăng nhập</th>
-                <th>Họ và tên</th>
+                <th>ID đơn hàng</th>
+                <th>ID người dùng</th>
+                <th>Tổng tiền</th>
+                <th>Số hoá đơn</th>
+                <th>Tổng sản phẩm</th>
+                <th>Ngày đặt</th>
+                <th>Trạng thái</th>
 
-                <th>Email khách hàng</th>
-                <th>Địa chỉ khách hàng</th>
-                <th>Số điện thoại khách hàng</th>
                 
             </tr>
         </thead>
         <tbody>";
                 $number = 0;
                 while ($row_data = mysqli_fetch_assoc($result)) {
+                    $order_id = $row_data['order_id'];
                     $user_id = $row_data['user_id'];
-                    $user_username = $row_data['username'];
-                    $user_fullname = $row_data['user_fullname'];
-                    $user_email = $row_data['user_email'];
-                    $user_address = $row_data['user_address'];
-                    $user_mobile = $row_data['user_mobile'];
+                    $amount_due = $row_data['amount_due'];
+                    $invoice_number = $row_data['invoice_number'];
+                    $total_products = $row_data['total_products'];
+                    $order_date = $row_data['order_date'];
+                    $order_status = $row_data['order_status'];
 
                     $number++;
                     echo "  <tr>
                 <td>$number</td>
-                <td>$user_username</td>
-                <td>$user_fullname</td>
-                <td>$user_email</td>
-                <td>$user_address</td>
-                <td>$user_mobile </td>
+                <td>$order_id</td>
+                <td>$user_id</td>
+                <td>$amount_due</td>
+                <td>$invoice_number</td>
+                <td>$total_products </td>
+                <td>$order_date </td>
+                <td>$order_status </td>
+
+
                 
                
             </tr>";
@@ -86,7 +93,7 @@ include('')
             </tbody>
     </table>
     <div>
-        <a href="index.php" class="">Quay về trang chủ</a>
+        <a href="../index.php" class="">Quay về trang chủ</a>
     </div>
 </body>
 

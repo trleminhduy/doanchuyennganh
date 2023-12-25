@@ -11,6 +11,10 @@
     <h3 class="text-center">
         TẤT CẢ ĐƠN HÀNG
     </h3>
+    <div class="col-12 d-flex justify-content-center">
+        <button class="btn"><a href="./export/order-list.php"
+                class="btn nav-link text-light bg-info my-1">EXPORT</a></button>
+    </div>
 
     <table class="table table-bordered mt-5">
         <thead class="bg-info">

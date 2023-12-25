@@ -17,7 +17,15 @@ if (isset($_POST['insert_brand'])) {
         $result = mysqli_query($con, $insert_query);
 
         if ($result) {
-            echo "Thêm thành công";
+            echo "<script>
+                Swal.fire({
+                    title: 'Thêm thành công!',
+                    
+                    icon: 'success',
+                    showConfirmButton: false,
+                    timer: 670
+                });
+              </script>";
         } else {
             echo "<script>alert('Thêm không thành công')</script>";
         }
