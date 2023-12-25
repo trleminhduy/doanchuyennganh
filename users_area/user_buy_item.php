@@ -81,7 +81,6 @@ session_start();
                             <!-- php code display dynamic data -->
                             <?php
                             global $con;
-                            $get_ip_add = getIPAddress();
                             $cart_query = "SELECT * FROM `orders_pending`, `products` WHERE orders_pending.product_id = products.product_id ";
                             $result = mysqli_query($con, $cart_query);
                             $result_count = mysqli_num_rows($result);
@@ -89,9 +88,7 @@ session_start();
                             if ($result_count > 0) {
                                 while ($row = mysqli_fetch_array($result)) {
                                     $product_title = $row['product_title'];
-                                    //$product_image1 = $row['product_image1'];
                                     $quantity = $row['quantity'];
-                                    $price_table = $row['product_price'] * $quantity;
                                     $invoice_number = $row['invoice_number'];
                                     ?>
 
@@ -106,13 +103,15 @@ session_start();
                                         <td>
                                             <?php echo $invoice_number ?>
                                         </td>
+
                                     </tr>
                                 <?php }
                             } else {
-                                echo "<h2 class='text-center text-danger'>No completed orders</h2>";
+                                echo "<h2 class='text-center text-danger'>Không có đơn hàng</h2>";
                             }
                             ?>
                         </tbody>
+
                     </table>
                 </form>
             </div>

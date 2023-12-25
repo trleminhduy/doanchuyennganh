@@ -28,7 +28,7 @@
             <tr>
                 <th> STT</th>
                 <th>Tổng tiền</th>
-                <th>Tổng số lượng đơn hàng</th>
+                <th>Tổng số lượng món hàng</th>
                 <th>Số hoá đơn</th>
                 <th>Ngày đặt</th>
                 <th>Trạng thái thanh toán</th>
