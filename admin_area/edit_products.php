@@ -139,11 +139,7 @@ if (isset($_POST['edit_product'])) {
     $product_brands = $_POST['product_brands'];
     $product_price = $_POST['product_price'];
 
-    if (!preg_match('/^[A-Za-z\s]+$/', $product_title)) {
-        echo "<script>alert('Tên sản phẩm chỉ được chứa chữ cái và khoảng trắng');</script>";
-        echo "<script>window.location.href='index.php?view_products'</script>";
-        exit(); // Stop further processing if validation fails
-    }
+
 
     // Validate required fields
     if (empty($product_title) || empty($product_description) || empty($product_category) || empty($product_brands) || empty($product_price)) {

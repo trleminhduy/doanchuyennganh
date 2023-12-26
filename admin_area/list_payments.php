@@ -32,8 +32,8 @@
                 <th>Số hoá đơn</th>
                 <th>Tổng tiền</th>
                 <th>Phương thức thanh toán</th>
-                <th>Ngày đặt</th>
-                <th>Xoá</th>
+                <th>Ngày thanh toán</th>
+               <!-- <th>Xoá</th> -->
             </tr>
         </thead>
         <tbody>";
@@ -52,7 +52,7 @@
                 <td>$amount</td>
                 <td>$payment_mode </td>
                 <td>$date</td>
-               <td><a href='index.php?delete_payments=" . $order_id . "'><i class='fa-solid fa-trash text-danger'></i></a></td>
+              <!-- <td><a href='index.php?delete_payments=" . $order_id . "'><i class='fa-solid fa-trash text-danger'></i></a></td> -->
             </tr>";
 
                 }
@@ -60,7 +60,7 @@
 
             ?>
 
-
+            <!--  -->
 
             </tbody>
     </table>

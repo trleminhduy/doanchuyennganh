@@ -92,12 +92,14 @@
                                 </p>
                                 <p class="card-text text-danger">Tổng được bán ra:
                                     <?php
-                                    $get_count = "Select * from `orders_pending` where product_id = $product_id";
-                                    $result_count = mysqli_query($con, $get_count);
-                                    $rows_count = mysqli_num_rows($result_count);
-                                    echo $rows_count;
+                                    $get_sold_quantity = "SELECT SUM(quantity) as total_sold FROM `orders_pending` WHERE product_id = $product_id";
+                                    $result_sold_quantity = mysqli_query($con, $get_sold_quantity);
+                                    $row_sold_quantity = mysqli_fetch_assoc($result_sold_quantity);
+                                    $total_sold = $row_sold_quantity['total_sold'];
+                                    echo $total_sold ? $total_sold : '0';
                                     ?>
                                 </p>
+
                                 <p class="card-text text-danger">Kho:
                                     <?php echo $product_stock; ?>
                                 </p>

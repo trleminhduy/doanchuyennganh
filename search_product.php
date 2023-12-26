@@ -54,11 +54,19 @@ session_start();
                             <a class="nav-link active" aria-current="page" href="./index.php">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Sản phẩm</a>
+                            <a class="nav-link" href="display_all.php">Sản phẩm</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Đăng ký</a>
-                        </li>
+                        <?php
+                        if (isset($_SESSION['username'])) {
+                            echo "  <li class='nav-item'>
+                            <a class='nav-link' href='./users_area/profile.php'>Trang cá nhân</a>
+                        </li>";
+                        } else {
+                            echo "  <li class='nav-item'>
+                            <a class='nav-link' href='./users_area/user_registration.php'>Đăng ký</a>
+                        </li>";
+                        }
+                        ?>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Liên hệ</a>
                         </li>

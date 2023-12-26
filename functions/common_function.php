@@ -323,6 +323,9 @@ function search_product()
                             <div class='card-body'>
                                 <h5 class='card-title'> $product_title</h5>
                                 <p class='card-text'>$product_description </p>
+                                           <p class='card-text text-danger'>Giá tiền: $product_price </p>
+
+
                                <a href='index.php?add_to_cart=$product_id' class='btn btn-info'>Thêm vào giỏ hàng</a>
                                 <a href='product_details.php?product_id=$product_id' class='btn btn-info mt-2 bg-light'>Xem thêm</a>
 
@@ -363,10 +366,11 @@ function view_details()
                             <div class='card-body'>
                                 <h5 class='card-title'> $product_title</h5>
                                 
-                                <p class='card-text'>Price: $product_price</p>
+                                          <p class='card-text text-danger'>Giá tiền: $product_price </p>
+
 
                                <a href='index.php?add_to_cart=$product_id' class='btn btn-info'>Thêm vào giỏ hàng</a>
-                                <a href='index.php' class='btn btn-info mt-2 bg-light'>Go home</a>
+                                <a href='index.php' class='btn btn-info mt-2 bg-light'>Trở về</a>
 
                             </div>
                         </div>
