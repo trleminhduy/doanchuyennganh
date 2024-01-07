@@ -302,7 +302,7 @@ function search_product()
     if (isset($_GET['search_data_product'])) {
         $search_data_value = $_GET['search_data'];
         //condition to check isset or not
-        $search_query = "Select * from `products` where product_keyword like '%$search_data_value%'";
+        $search_query = "SELECT * FROM `products` WHERE `product_id` LIKE '%$search_data_value%' OR `product_keyword` LIKE '%$search_data_value%'";
         $result_query = mysqli_query($con, $search_query);
         $num_of_rows = mysqli_num_rows($result_query);
         if ($num_of_rows == 0) {

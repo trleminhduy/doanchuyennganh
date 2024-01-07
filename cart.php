@@ -184,8 +184,10 @@ session_start();
                                                 <?php echo $product_title ?>
                                             </td>
                                             <td><img src="./asset/img/<?php echo $product_image1 ?>" alt="" class="cart_img"></td>
+
                                             <td><input type="text" name="qty[<?php echo $product_id; ?>]" class="form-input w-50"
                                                     value="<?php echo $quantity; ?>"></td>
+                                                    
                                             <td>
                                                 <?php echo $product_price * $quantity ?>
                                             </td>

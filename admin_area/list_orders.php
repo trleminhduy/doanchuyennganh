@@ -35,6 +35,8 @@
                 <th>Tổng số lượng</th>
                 <th>Ngày đặt</th>
                 <th>Trạng thái</th>
+                <th>Mã sản phẩm</th>
+
                
             </tr>
         </thead>

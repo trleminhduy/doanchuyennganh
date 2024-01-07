@@ -105,8 +105,20 @@
                                 </p>
                                 <a href='index.php?edit_products=<?php echo $product_id ?>' class='btn btn-primary'><i
                                         class='fa-solid fa-pen-to-square'></i> Chỉnh sửa</a>
-                                <a href='index.php?delete_products=<?php echo $product_id ?>' class='btn btn-danger'><i
-                                        class='fa-solid fa-trash'></i> Xoá</a>
+
+
+                                        
+                                <?php
+                                // this line of code is showing the disabled button "edit" when products are selected/bought
+                                $product_id = $row['product_id'];
+                                $check_order_query = "Select * from `orders_pending` where product_id = $product_id";
+                                $check_order_result = mysqli_query($con, $check_order_query);
+                                $product_in_order = mysqli_num_rows($check_order_result) > 0;
+                                if (!$product_in_order) {
+                                    echo "<a href='index.php?delete_products=$product_id' class='btn btn-danger'><i class='fa-solid fa-trash'></i> Xoá</a>";
+                                }
+                                ?>
+
                             </div>
                         </div>
                     </div>

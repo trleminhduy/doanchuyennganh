@@ -12,11 +12,11 @@ if (isset($_POST['edit_cat'])) {
     $cat_title = $_POST['category_title'];
 
     // Validate category title (allow letters and spaces)
-    if (!preg_match('/^[A-Za-z\s]+$/', $cat_title)) {
-        echo "<script>alert('Danh mục chỉ được chứa chữ cái và khoảng trắng');</script>";
-        echo "<script>window.location.href='index.php?view_categories'</script>";
-        exit(); // Stop further processing if validation fails
-    }
+    // if (!preg_match('/^[A-Za-z\s]+$/', $cat_title)) {
+    //     echo "<script>alert('Danh mục chỉ được chứa chữ cái và khoảng trắng');</script>";
+    //     echo "<script>window.location.href='index.php?view_categories'</script>";
+    //     exit(); // Stop further processing if validation fails
+    // }
 
     $update_query = "UPDATE `danhmuc` SET `danhmuc_title` = '$cat_title' WHERE `danhmuc_id` = '$edit_category'";
     $result = mysqli_query($con, $update_query);

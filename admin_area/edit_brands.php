@@ -10,13 +10,13 @@ if (isset($_GET['edit_brands'])) {
 
 if (isset($_POST['edit_cat'])) {
     $cat_title = $_POST['brands_title'];
-
+    
     // Validate brand title (allow letters and spaces)
-    if (!preg_match('/^[A-Za-z\s]+$/', $cat_title)) {
-        echo "<script>alert('Tên nhà xuất bản chỉ được chứa chữ cái và khoảng trắng');</script>";
-        echo "<script>window.location.href='index.php?view_categories'</script>";
-        exit(); // Stop further processing if validation fails
-    }
+    // if (!preg_match('/^[A-Za-z\s]+$/', $cat_title)) {
+    //     echo "<script>alert('Tên nhà xuất bản chỉ được chứa chữ cái và khoảng trắng');</script>";
+    //     echo "<script>window.location.href='index.php?view_categories'</script>";
+    //     exit(); // Stop further processing if validation fails
+    // }
 
     $update_query = "UPDATE `nhaxuatban` SET `nxb_title` = '$cat_title' WHERE `nxb_id` = '$edit_brands'";
     $result = mysqli_query($con, $update_query);
