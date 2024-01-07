@@ -135,9 +135,9 @@ if (isset($_POST["send"])) {
     $mail->Port = 587; // set the port to use
     $mail->SMTPAuth = true; // turn on SMTP authentication
     $mail->SMTPSecure = 'STARTTLS';
-    $mail->Username = "trleminhduy@outlook.com"; //Địa chỉ gmail sử dụng để gửi email
-    $mail->Password = "minhduy2002"; // your SMTP password or your gmail password
-    $from = "trleminhduy@outlook.com"; // Khi người sử dụng bấm reply sẽ gửi đến email này
+    $mail->Username = "yourmail@outlook.com"; //Địa chỉ gmail sử dụng để gửi email
+    $mail->Password = "yourpassword"; // your SMTP password or your gmail password
+    $from = "yourmail@outlook.com"; // Khi người sử dụng bấm reply sẽ gửi đến email này
     $to = $_REQUEST["email"]; // Email người nhận (email thực)
     $name = "Xin chao anh/chi"; // Tên người nhận
     $mail->From = $from;
